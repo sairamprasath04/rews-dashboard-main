@@ -1193,6 +1193,137 @@ function PatientOnboarding({currentUser,onComplete}){
 }
 
 // ─── Patient Portal ───────────────────────────────────────────────────────────
+// ─── Patient: Diabetes Program ────────────────────────────────────────────────
+function PatientDiabetesProgram({me,addToast}){
+  const [chatMsg,setChatMsg]=useState("");
+  const [chatHistory,setChatHistory]=useState([
+    {from:"bot",text:"Hi! I'm your REWS health assistant. How are you feeling today? Have you had a chance to do your post-meal walk?"},
+  ]);
+  const programDay=3;
+  const v=useVisible(50);
+  const cgmReadings=[95,93,90,88,87,90,108,125,148,165,170,158,145,135,122,115,112,110,118,135,162,178,175,160,148,138,128,122,118,115,124,142,165,170,165,150,138,130,122,118,115,112,108,105,102,100,97,95];
+  const cgmPath=cgmReadings.map((v,i)=>{const x=5+(i/(cgmReadings.length-1))*480;const y=105-((v-60)/140)*95;return `${i===0?"M":"L"}${x.toFixed(1)},${y.toFixed(1)}`;}).join(" ");
+  function sendChat(){
+    if(!chatMsg.trim()) return;
+    const msg=chatMsg.trim();
+    setChatHistory(h=>[...h,{from:"user",text:msg}]);
+    setChatMsg("");
+    setTimeout(()=>{
+      const replies=["Great to hear! Remember to track your nutrition after each meal.","Your glucose levels have been improving — keep up the great work!","Don't forget your evening walk today — it helps stabilise overnight glucose.","Your doctor has been notified of your progress. You're doing well!","Try to aim for 7–8 hours of sleep tonight — it makes a real difference to your blood sugar."];
+      setChatHistory(h=>[...h,{from:"bot",text:replies[Math.floor(Math.random()*replies.length)]}]);
+    },800);
+  }
+  return(
+    <div style={{opacity:v?1:0,transition:"opacity 0.4s"}}>
+      <div style={{fontSize:20,fontWeight:700,color:T.text,marginBottom:4}}>My Health Programs</div>
+      <div style={{fontSize:13,color:T.muted,marginBottom:20}}>Specialist monitoring & lifestyle programs</div>
+      {/* Program banner */}
+      <div style={{background:`linear-gradient(135deg,${T.navy} 0%,#1a3a5c 100%)`,borderRadius:16,padding:"22px 28px",marginBottom:20,color:T.white}}>
+        <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",flexWrap:"wrap",gap:12}}>
+          <div>
+            <div style={{fontSize:11,color:T.sky,fontWeight:600,textTransform:"uppercase",letterSpacing:"0.1em",marginBottom:4}}>🩸 Diabetes Monitoring Program</div>
+            <div style={{fontSize:24,fontWeight:700,marginBottom:4}}>Day {programDay} of 14</div>
+            <div style={{fontSize:12,color:"rgba(248,250,252,0.65)"}}>Phase 1: Baseline data collection — wear CGM and sync wearable daily</div>
+          </div>
+          <div style={{textAlign:"right"}}>
+            <div style={{fontSize:11,color:"rgba(248,250,252,0.5)",marginBottom:4}}>Current Reading</div>
+            <div style={{fontSize:32,fontWeight:700,color:T.sky}}>125 <span style={{fontSize:14,fontWeight:400}}>mg/dL</span></div>
+            <div style={{fontSize:11,color:T.green}}>✓ In target range</div>
+          </div>
+        </div>
+        <div style={{marginTop:14,background:"rgba(255,255,255,0.08)",borderRadius:8,height:6,overflow:"hidden"}}>
+          <div style={{height:"100%",width:`${(programDay/14)*100}%`,background:T.sky,borderRadius:8}}/>
+        </div>
+      </div>
+      {/* CGM chart */}
+      <div style={{background:T.white,borderRadius:16,border:`1px solid ${T.border}`,padding:"22px 24px",marginBottom:16}}>
+        <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:14}}>
+          <div style={{fontSize:14,fontWeight:700,color:T.text}}>📈 My Glucose — Today</div>
+          <span style={{fontSize:11,padding:"3px 10px",borderRadius:8,background:T.greenLight,color:T.green,fontWeight:600}}>● CGM Active</span>
+        </div>
+        <svg width="100%" viewBox="0 0 490 115" style={{overflow:"visible"}}>
+          <rect x="5" y={105-((140-60)/140)*95} width="480" height={((140-70)/140)*95} fill="#D1FAE5" opacity="0.5" rx="3"/>
+          {[70,100,140,180].map(g=>{const y=105-((g-60)/140)*95;return(<g key={g}><line x1="5" y1={y} x2="485" y2={y} stroke={T.border} strokeWidth="0.5"/><text x="0" y={y+3} fontSize="9" fill={T.muted}>{g}</text></g>);})}
+          <path d={cgmPath} fill="none" stroke={T.sky} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
+        <div style={{display:"flex",gap:16,marginTop:6}}>
+          <div style={{display:"flex",alignItems:"center",gap:5}}><div style={{width:14,height:3,background:T.sky,borderRadius:2}}/><span style={{fontSize:11,color:T.muted}}>Blood Glucose (mg/dL)</span></div>
+          <div style={{display:"flex",alignItems:"center",gap:5}}><div style={{width:14,height:8,background:"#D1FAE5",borderRadius:2}}/><span style={{fontSize:11,color:T.muted}}>Target Range (70–140)</span></div>
+        </div>
+        <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:10,marginTop:14}}>
+          {[{label:"Time in Range",val:"72%",color:T.green},{label:"Time Above",val:"21%",color:T.amber},{label:"Time Below",val:"7%",color:T.red}].map((s,i)=>(
+            <div key={i} style={{background:T.slateBg,borderRadius:9,padding:"10px 14px",textAlign:"center"}}>
+              <div style={{fontSize:18,fontWeight:700,color:s.color}}>{s.val}</div>
+              <div style={{fontSize:11,color:T.muted}}>{s.label}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+      {/* Wearable + Nutrition */}
+      <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:16,marginBottom:16}}>
+        <div style={{background:T.white,borderRadius:16,border:`1px solid ${T.border}`,padding:"20px 22px"}}>
+          <div style={{fontSize:13,fontWeight:700,color:T.text,marginBottom:14}}>⌚ Activity & Wearable</div>
+          <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:10}}>
+            {[{icon:"👣",label:"Steps",val:"4,521"},{icon:"🔥",label:"Calories",val:"1,847 kcal"},{icon:"💓",label:"Heart Rate",val:"72 bpm"},{icon:"😴",label:"Sleep",val:"6.8 hrs"}].map((w,i)=>(
+              <div key={i} style={{background:T.slateBg,borderRadius:10,padding:"12px"}}>
+                <div style={{fontSize:18,marginBottom:4}}>{w.icon}</div>
+                <div style={{fontSize:14,fontWeight:700,color:T.text}}>{w.val}</div>
+                <div style={{fontSize:11,color:T.muted}}>{w.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div style={{background:T.white,borderRadius:16,border:`1px solid ${T.border}`,padding:"20px 22px"}}>
+          <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:14}}>
+            <div style={{fontSize:13,fontWeight:700,color:T.text}}>🥗 Nutrition Log</div>
+            <span style={{fontSize:11,padding:"2px 8px",borderRadius:8,background:T.amberLight,color:T.amber,fontWeight:600}}>Syncing…</span>
+          </div>
+          {[{meal:"Breakfast",cal:420,notes:"Oats, banana"},{meal:"Lunch",cal:680,notes:"Chicken salad"},{meal:"Dinner",cal:null,notes:"Not yet logged"}].map((m,i)=>(
+            <div key={i} style={{display:"flex",alignItems:"center",gap:10,padding:"8px 10px",borderRadius:9,background:m.cal?T.slateBg:"none",marginBottom:6,border:`1px solid ${m.cal?T.border:"transparent"}`}}>
+              <span style={{fontSize:14}}>{i===0?"🌅":i===1?"☀️":"🌙"}</span>
+              <div style={{flex:1}}>
+                <div style={{fontSize:12,fontWeight:600,color:T.text}}>{m.meal}</div>
+                <div style={{fontSize:11,color:T.muted}}>{m.notes}</div>
+              </div>
+              {m.cal&&<span style={{fontSize:12,fontWeight:700,color:T.muted}}>{m.cal} kcal</span>}
+            </div>
+          ))}
+        </div>
+      </div>
+      {/* ML loading state */}
+      <div style={{background:T.white,borderRadius:16,border:`1px solid ${T.border}`,padding:"22px 24px",marginBottom:16,textAlign:"center"}}>
+        <div style={{fontSize:32,marginBottom:10}}>⏳</div>
+        <div style={{fontSize:14,fontWeight:700,color:T.text,marginBottom:6}}>AI Model Collecting Baseline Data…</div>
+        <div style={{fontSize:12,color:T.muted,marginBottom:16,maxWidth:400,margin:"0 auto 16px"}}>Your personalised lifestyle recommendations will be ready on Day 8 after the model analyses your first 7 days of glucose, activity and nutrition data.</div>
+        <div style={{background:T.slateBg,borderRadius:10,padding:"10px 20px",display:"inline-block",fontSize:12,color:T.muted}}>Day {programDay} of 7 complete · {Math.round((programDay/7)*100)}% data collected</div>
+      </div>
+      {/* Chatbot */}
+      <div style={{background:T.white,borderRadius:16,border:`1px solid ${T.border}`,overflow:"hidden"}}>
+        <div style={{padding:"16px 20px",borderBottom:`1px solid ${T.border}`,display:"flex",alignItems:"center",gap:10}}>
+          <div style={{width:36,height:36,borderRadius:"50%",background:`linear-gradient(135deg,${T.sky},#38BDF8)`,display:"flex",alignItems:"center",justifyContent:"center",fontSize:16}}>🤖</div>
+          <div>
+            <div style={{fontSize:13,fontWeight:700,color:T.text}}>REWS Health Assistant</div>
+            <div style={{fontSize:11,color:T.green}}>● Online — here to support your journey</div>
+          </div>
+        </div>
+        <div style={{height:220,overflowY:"auto",padding:"16px 20px",display:"flex",flexDirection:"column",gap:10}}>
+          {chatHistory.map((m,i)=>(
+            <div key={i} style={{display:"flex",justifyContent:m.from==="bot"?"flex-start":"flex-end"}}>
+              <div style={{maxWidth:"75%",padding:"10px 14px",borderRadius:m.from==="bot"?"4px 14px 14px 14px":"14px 4px 14px 14px",background:m.from==="bot"?T.slateBg:T.sky,color:m.from==="bot"?T.text:T.white,fontSize:13,lineHeight:1.5}}>{m.text}</div>
+            </div>
+          ))}
+        </div>
+        <div style={{padding:"12px 16px",borderTop:`1px solid ${T.border}`,display:"flex",gap:10}}>
+          <input value={chatMsg} onChange={e=>setChatMsg(e.target.value)} onKeyDown={e=>e.key==="Enter"&&sendChat()} placeholder="Ask a question or share how you're feeling…"
+            style={{flex:1,padding:"9px 14px",borderRadius:9,border:`1.5px solid ${T.border}`,fontSize:13,fontFamily:"inherit",outline:"none",color:T.text,transition:"border-color 0.15s"}}
+            onFocus={e=>e.target.style.borderColor=T.sky} onBlur={e=>e.target.style.borderColor=T.border}/>
+          <button onClick={sendChat} style={{padding:"9px 18px",borderRadius:9,background:T.sky,border:"none",color:T.white,fontSize:13,fontWeight:700,cursor:"pointer",fontFamily:"inherit"}}>Send</button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function PatientPortal({currentUser,onLogout,appointments,setAppointments,addToast}){
   const profileKey=`rews_profile_${currentUser.email}`;
   const [profile,setProfile]=useState(()=>{
@@ -1221,6 +1352,7 @@ function PatientPortal({currentUser,onLogout,appointments,setAppointments,addToa
     {id:"mycare",icon:"❤️",label:"My Care Team"},
     {id:"health",icon:"📋",label:"Health Summary"},
     {id:"messages",icon:"💬",label:"Messages"},
+    {id:"programs",icon:"🩸",label:"My Programs"},
   ];
   const typeColor=t=>t==="Telehealth"?T.sky:t==="In-Person"?T.navy:T.amber;
   const statusColor=s=>s==="Confirmed"?T.green:s==="Scheduled"?T.sky:s==="Pending"?T.amber:T.muted;
@@ -1233,6 +1365,7 @@ function PatientPortal({currentUser,onLogout,appointments,setAppointments,addToa
       case "mycare":       return <PatientCareTeam me={me} addToast={addToast}/>;
       case "health":       return <PatientHealth me={me} profile={profile}/>;
       case "messages":     return <PatientMessages me={me} addToast={addToast}/>;
+      case "programs":     return <PatientDiabetesProgram me={me} addToast={addToast}/>;
       default:             return <PatientHome me={me} upcoming={upcoming} setPage={setPage} currentUser={currentUser} statusColor={statusColor} profile={profile}/>;
     }
   }
@@ -1613,7 +1746,7 @@ function PatientHealth({me,profile}){
         <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:12}}>
           {[
             {label:"Age",val:`${age} years`,icon:"🎂"},
-            {label:"Location",val:me.aria_category,icon:"📍"},
+            {label:"Medications",val:`${me.num_meds} active`,icon:"💊"},
             {label:"ED Visits (6m)",val:edVisits,icon:"🏥",warn:edVisits>=3},
             {label:"Days Since GP Visit",val:`${daysSinceGp} days`,icon:"📅",warn:daysSinceGp>90},
           ].map((item,i)=>(
@@ -1684,7 +1817,7 @@ function PatientHealth({me,profile}){
             {label:"Smoking",val:smokingStatus==="never"?"Non-smoker":smokingStatus==="former"?"Former smoker":"Current smoker",ok:smokingStatus==="never",icon:"🚬"},
             {label:"Living Situation",val:livesAlone==="yes"?"Lives alone":"Lives with others",ok:livesAlone==="no",icon:"🏠"},
             {label:"Telehealth",val:telehealthUse==="yes"?"Telehealth capable":"Not set up",ok:telehealthUse==="yes",icon:"💻"},
-            {label:"ATSI Status",val:me.atsi_status==="yes"?"Yes — additional support available":"No",ok:true,icon:"🌍"},
+            {label:"Telehealth Ready",val:me.telehealth_6m==="yes"?"Set up and available":"Not set up",ok:me.telehealth_6m==="yes",icon:"💻"},
           ].map((item,i)=>(
             <div key={i} style={{padding:"12px 16px",borderRadius:10,background:item.ok?T.greenLight:T.amberLight,border:`1px solid ${item.ok?T.green+"33":T.amber+"33"}`}}>
               <div style={{fontSize:11,color:item.ok?T.green:T.amber,fontWeight:600,marginBottom:4}}>{item.icon} {item.label}</div>
@@ -2199,9 +2332,238 @@ function PageIntakeQueue({addToast,onNavigate}){
   );
 }
 
+// ─── Specialist Referrals ─────────────────────────────────────────────────────
+function PageSpecialist({addToast}){
+  const [subTab,setSubTab]=useState("diabetes");
+  const [selPat,setSelPat]=useState(null);
+  const [enrolled,setEnrolled]=useState({"P002":true,"P007":true,"P011":true});
+  const [recNote,setRecNote]=useState("");
+  const v=useVisible(50);
+  const PROG={"P002":{day:3,phase:"monitoring",lastGlucose:148,avgGlucose:132},"P007":{day:9,phase:"recommendations",lastGlucose:118,avgGlucose:115},"P011":{day:3,phase:"monitoring",lastGlucose:125,avgGlucose:120}};
+  function diabRisk(p){
+    if(p.diagnosis.toLowerCase().includes("type 2 diabetes")) return "HIGH";
+    if(p.age>=60&&p.num_meds>=8) return "MEDIUM";
+    if(p.age>=50||p.risk_probability>=50) return "MEDIUM";
+    return "LOW";
+  }
+  const diabPats=PATIENTS.map(p=>({...p,dr:diabRisk(p)})).sort((a,b)=>({HIGH:0,MEDIUM:1,LOW:2}[a.dr]-{HIGH:0,MEDIUM:1,LOW:2}[b.dr]));
+  const sel=selPat?diabPats.find(p=>p.patient_id===selPat):null;
+  const prog=sel&&PROG[sel.patient_id];
+  const cgmReadings=[95,93,90,88,87,90,108,125,148,165,170,158,145,135,122,115,112,110,118,135,162,178,175,160,148,138,128,122,118,115,124,142,165,170,165,150,138,130,122,118,115,112,108,105,102,100,97,95];
+  const cgmPath=cgmReadings.map((v,i)=>{const x=5+(i/(cgmReadings.length-1))*480;const y=105-((v-60)/140)*95;return `${i===0?"M":"L"}${x.toFixed(1)},${y.toFixed(1)}`;}).join(" ");
+  return(
+    <div style={{opacity:v?1:0,transition:"opacity 0.4s"}}>
+      {/* Sub-tabs */}
+      <div style={{display:"flex",gap:8,marginBottom:24}}>
+        {[{id:"diabetes",icon:"🩸",label:"Diabetes"},{id:"cardio",icon:"❤️",label:"Cardiovascular"},{id:"other",icon:"🔬",label:"Other Conditions"}].map(tab=>(
+          <button key={tab.id} onClick={()=>setSubTab(tab.id)} style={{padding:"10px 20px",borderRadius:10,border:`2px solid ${subTab===tab.id?T.sky:T.border}`,background:subTab===tab.id?T.skyLight:T.white,color:subTab===tab.id?T.sky:T.muted,fontSize:13,fontWeight:subTab===tab.id?700:400,cursor:"pointer",fontFamily:"inherit",display:"flex",alignItems:"center",gap:7,transition:"all 0.15s"}}>
+            <span>{tab.icon}</span>{tab.label}
+            {tab.id!=="diabetes"&&<span style={{fontSize:10,background:T.slateBg,padding:"1px 6px",borderRadius:8,color:T.muted}}>Soon</span>}
+          </button>
+        ))}
+      </div>
+      {subTab!=="diabetes"&&(
+        <div style={{textAlign:"center",padding:"80px 40px",background:T.white,borderRadius:16,border:`1px solid ${T.border}`}}>
+          <div style={{fontSize:48,marginBottom:16}}>{subTab==="cardio"?"❤️":"🔬"}</div>
+          <div style={{fontSize:18,fontWeight:700,color:T.text,marginBottom:8}}>{subTab==="cardio"?"Cardiovascular Module":"Other Conditions Module"}</div>
+          <div style={{fontSize:14,color:T.muted}}>This specialist module is coming soon. The diabetes program demonstrates the full workflow.</div>
+        </div>
+      )}
+      {subTab==="diabetes"&&(
+        <div style={{display:"grid",gridTemplateColumns:"300px 1fr",gap:20,minHeight:"calc(100vh - 200px)"}}>
+          {/* Patient list */}
+          <div style={{background:T.white,borderRadius:14,border:`1px solid ${T.border}`,overflow:"hidden",display:"flex",flexDirection:"column",maxHeight:"calc(100vh - 200px)"}}>
+            <div style={{padding:"14px 16px",borderBottom:`1px solid ${T.border}`}}>
+              <div style={{fontSize:13,fontWeight:700,color:T.text,marginBottom:2}}>Diabetes Risk Screening</div>
+              <div style={{fontSize:11,color:T.muted}}>{diabPats.filter(p=>p.dr==="HIGH").length} high · {diabPats.filter(p=>p.dr==="MEDIUM").length} medium risk</div>
+            </div>
+            <div style={{overflowY:"auto",flex:1}}>
+              {diabPats.map(p=>{
+                const isSel=selPat===p.patient_id;
+                return(
+                  <div key={p.patient_id} onClick={()=>setSelPat(p.patient_id)} style={{padding:"12px 16px",borderBottom:`1px solid ${T.border}`,cursor:"pointer",background:isSel?T.skyLight:T.white,borderLeft:`3px solid ${isSel?T.sky:"transparent"}`,transition:"background 0.12s"}}>
+                    <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:4}}>
+                      <span style={{fontWeight:700,fontSize:13,color:T.text}}>{p.patient_id}</span>
+                      <span style={{padding:"2px 8px",borderRadius:8,fontSize:10,fontWeight:700,background:riskBg(p.dr),color:riskColor(p.dr)}}>{p.dr}</span>
+                    </div>
+                    <div style={{fontSize:11,color:T.muted,marginBottom:3}}>{p.age}y · {p.diagnosis.split("|")[0].trim()}</div>
+                    {enrolled[p.patient_id]&&<span style={{fontSize:10,padding:"1px 7px",borderRadius:8,background:T.greenLight,color:T.green,fontWeight:600}}>● Enrolled</span>}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+          {/* Detail panel */}
+          <div style={{overflowY:"auto",display:"flex",flexDirection:"column",gap:16}}>
+            {!sel&&(
+              <div style={{background:T.white,borderRadius:14,border:`1px solid ${T.border}`,padding:"60px",textAlign:"center"}}>
+                <div style={{fontSize:40,marginBottom:12}}>🩸</div>
+                <div style={{fontSize:16,fontWeight:600,color:T.text,marginBottom:6}}>Select a patient</div>
+                <div style={{fontSize:13,color:T.muted}}>Choose a patient to view their diabetes risk assessment and monitoring data.</div>
+              </div>
+            )}
+            {sel&&(<>
+              {/* Header */}
+              <div style={{background:T.white,borderRadius:14,border:`1px solid ${T.border}`,padding:"20px 24px",display:"flex",justifyContent:"space-between",alignItems:"center"}}>
+                <div>
+                  <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:4}}>
+                    <span style={{fontSize:16,fontWeight:700,color:T.text}}>{sel.patient_id}</span>
+                    <span style={{padding:"3px 9px",borderRadius:8,fontSize:11,fontWeight:700,background:riskBg(sel.dr),color:riskColor(sel.dr)}}>{sel.dr} DIABETES RISK</span>
+                    {enrolled[sel.patient_id]&&<span style={{padding:"3px 9px",borderRadius:8,fontSize:11,fontWeight:600,background:T.greenLight,color:T.green}}>● In Program</span>}
+                  </div>
+                  <div style={{fontSize:12,color:T.muted}}>{sel.age} years · {sel.diagnosis}</div>
+                </div>
+                {!enrolled[sel.patient_id]&&(
+                  <button onClick={()=>{setEnrolled(e=>({...e,[sel.patient_id]:true}));addToast(`${sel.patient_id} enrolled in Diabetes Monitoring Program. CGM kit will be dispatched.`);}} style={{padding:"9px 18px",borderRadius:9,background:T.sky,border:"none",color:T.white,fontSize:13,fontWeight:700,cursor:"pointer",fontFamily:"inherit"}}>+ Enroll in Program</button>
+                )}
+              </div>
+              {/* AI Risk Assessment */}
+              <div style={{background:T.white,borderRadius:14,border:`1px solid ${T.border}`,padding:"20px 24px"}}>
+                <div style={{fontSize:13,fontWeight:700,color:T.text,marginBottom:16}}>🤖 AI Diabetes Risk Assessment</div>
+                <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr 1fr",gap:12,marginBottom:16}}>
+                  {[{label:"Diabetes Risk Score",val:sel.dr==="HIGH"?"78%":sel.dr==="MEDIUM"?"52%":"21%",color:riskColor(sel.dr)},{label:"Model Confidence",val:"84%",color:T.sky},{label:"Est. Time to Onset",val:sel.dr==="HIGH"?"1–2 yrs":sel.dr==="MEDIUM"?"3–5 yrs":">10 yrs",color:T.muted},{label:"HbA1c (predicted)",val:sel.dr==="HIGH"?"7.2%":sel.dr==="MEDIUM"?"6.1%":"5.4%",color:sel.dr==="HIGH"?T.red:T.muted}].map((item,i)=>(
+                    <div key={i} style={{background:T.slateBg,borderRadius:10,padding:"12px 16px"}}>
+                      <div style={{fontSize:10,color:T.muted,fontWeight:500,marginBottom:4,textTransform:"uppercase",letterSpacing:"0.06em"}}>{item.label}</div>
+                      <div style={{fontSize:20,fontWeight:700,color:item.color}}>{item.val}</div>
+                    </div>
+                  ))}
+                </div>
+                <div style={{fontSize:11,color:T.muted,fontWeight:600,marginBottom:8,textTransform:"uppercase",letterSpacing:"0.05em"}}>Key Risk Factors</div>
+                <div style={{display:"flex",gap:8,flexWrap:"wrap"}}>
+                  {[sel.diagnosis.includes("Type 2 Diabetes")&&"Active T2D diagnosis",sel.age>=65&&"Age ≥ 65",sel.num_meds>=8&&"Polypharmacy (≥8 meds)",sel.smoking_status==="current"&&"Current smoker",sel.diagnosis.includes("Heart")&&"Cardiovascular comorbidity",sel.diagnosis.includes("COPD")&&"COPD present"].filter(Boolean).map((f,i)=>(
+                    <span key={i} style={{padding:"3px 10px",borderRadius:8,fontSize:11,background:T.redLight,color:T.red,fontWeight:500}}>{f}</span>
+                  ))}
+                </div>
+              </div>
+              {/* Enrolled: program panels */}
+              {enrolled[sel.patient_id]&&prog&&(<>
+                {/* Program status */}
+                <div style={{background:`linear-gradient(135deg,${T.navy} 0%,#1a3a5c 100%)`,borderRadius:14,padding:"18px 24px",color:T.white}}>
+                  <div style={{display:"flex",justifyContent:"space-between",alignItems:"center"}}>
+                    <div>
+                      <div style={{fontSize:13,fontWeight:700,color:T.sky,marginBottom:4}}>Diabetes Monitoring Program</div>
+                      <div style={{fontSize:22,fontWeight:700}}>Day {prog.day} of 14</div>
+                      <div style={{fontSize:12,color:"rgba(248,250,252,0.6)",marginTop:3}}>{prog.phase==="monitoring"?"Phase 1: Data Collection (Days 1–7)":"Phase 2: AI Recommendations Active (Days 8–14)"}</div>
+                    </div>
+                    <div style={{textAlign:"right"}}>
+                      <div style={{fontSize:11,color:"rgba(248,250,252,0.5)",marginBottom:4}}>Latest Glucose</div>
+                      <div style={{fontSize:28,fontWeight:700,color:prog.lastGlucose>140?T.amber:T.sky}}>{prog.lastGlucose} <span style={{fontSize:13,fontWeight:400}}>mg/dL</span></div>
+                      <div style={{fontSize:11,color:"rgba(248,250,252,0.5)",marginTop:2}}>7-day avg: {prog.avgGlucose} mg/dL</div>
+                    </div>
+                  </div>
+                  <div style={{marginTop:14,background:"rgba(255,255,255,0.08)",borderRadius:8,height:6,overflow:"hidden"}}>
+                    <div style={{height:"100%",width:`${(prog.day/14)*100}%`,background:T.sky,borderRadius:8}}/>
+                  </div>
+                </div>
+                {/* CGM chart */}
+                <div style={{background:T.white,borderRadius:14,border:`1px solid ${T.border}`,padding:"20px 24px"}}>
+                  <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:14}}>
+                    <div style={{fontSize:13,fontWeight:700,color:T.text}}>📈 Continuous Glucose Monitor — Today</div>
+                    <span style={{fontSize:11,padding:"2px 8px",borderRadius:8,background:T.greenLight,color:T.green,fontWeight:600}}>Live Sync</span>
+                  </div>
+                  <svg width="100%" viewBox="0 0 490 115" style={{overflow:"visible"}}>
+                    <rect x="5" y={105-((140-60)/140)*95} width="480" height={((140-70)/140)*95} fill="#D1FAE5" opacity="0.5" rx="3"/>
+                    {[70,100,140,180].map(g=>{const y=105-((g-60)/140)*95;return(<g key={g}><line x1="5" y1={y} x2="485" y2={y} stroke={T.border} strokeWidth="0.5"/><text x="0" y={y+3} fontSize="9" fill={T.muted}>{g}</text></g>);})}
+                    <path d={cgmPath} fill="none" stroke={T.sky} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                  <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:10,marginTop:10}}>
+                    {[{label:"Time in Range",val:"72%",color:T.green},{label:"Time Above",val:"21%",color:T.amber},{label:"Time Below",val:"7%",color:T.red}].map((s,i)=>(
+                      <div key={i} style={{background:T.slateBg,borderRadius:9,padding:"10px 14px",textAlign:"center"}}>
+                        <div style={{fontSize:18,fontWeight:700,color:s.color}}>{s.val}</div>
+                        <div style={{fontSize:11,color:T.muted}}>{s.label}</div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                {/* Wearable + Nutrition */}
+                <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:16}}>
+                  <div style={{background:T.white,borderRadius:14,border:`1px solid ${T.border}`,padding:"20px 24px"}}>
+                    <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:14}}>
+                      <div style={{fontSize:13,fontWeight:700,color:T.text}}>⌚ Wearable Device</div>
+                      <span style={{fontSize:11,padding:"2px 8px",borderRadius:8,background:T.greenLight,color:T.green,fontWeight:600}}>Synced</span>
+                    </div>
+                    <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:10}}>
+                      {[{icon:"👣",label:"Steps Today",val:"4,521"},{icon:"🔥",label:"Calories",val:"1,847 kcal"},{icon:"💓",label:"Heart Rate",val:"72 bpm"},{icon:"😴",label:"Sleep",val:"6.8 hrs"}].map((w,i)=>(
+                        <div key={i} style={{background:T.slateBg,borderRadius:10,padding:"12px"}}>
+                          <div style={{fontSize:18,marginBottom:4}}>{w.icon}</div>
+                          <div style={{fontSize:16,fontWeight:700,color:T.text}}>{w.val}</div>
+                          <div style={{fontSize:11,color:T.muted}}>{w.label}</div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  <div style={{background:T.white,borderRadius:14,border:`1px solid ${T.border}`,padding:"20px 24px"}}>
+                    <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:14}}>
+                      <div style={{fontSize:13,fontWeight:700,color:T.text}}>🥗 Nutrition Tracker</div>
+                      <span style={{fontSize:11,padding:"2px 8px",borderRadius:8,background:T.amberLight,color:T.amber,fontWeight:600}}>Syncing…</span>
+                    </div>
+                    {[{meal:"Breakfast",cal:420,notes:"Oats, banana, black coffee"},{meal:"Lunch",cal:680,notes:"Chicken salad, brown rice"},{meal:"Dinner",cal:null,notes:"Not yet logged"}].map((m,i)=>(
+                      <div key={i} style={{display:"flex",alignItems:"center",gap:12,padding:"10px 12px",borderRadius:9,background:m.cal?T.slateBg:"none",border:`1px solid ${m.cal?T.border:"transparent"}`,marginBottom:6}}>
+                        <span style={{fontSize:14}}>{i===0?"🌅":i===1?"☀️":"🌙"}</span>
+                        <div style={{flex:1}}><div style={{fontSize:12,fontWeight:600,color:T.text}}>{m.meal}</div><div style={{fontSize:11,color:T.muted}}>{m.notes}</div></div>
+                        {m.cal&&<div style={{textAlign:"right"}}><div style={{fontSize:12,fontWeight:700,color:T.text}}>{m.cal} kcal</div></div>}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                {/* ML model */}
+                <div style={{background:T.white,borderRadius:14,border:`1px solid ${T.border}`,padding:"20px 24px"}}>
+                  <div style={{fontSize:13,fontWeight:700,color:T.text,marginBottom:14}}>🧠 AI Lifestyle Model</div>
+                  {prog.phase==="monitoring"?(
+                    <div style={{textAlign:"center",padding:"24px"}}>
+                      <div style={{fontSize:32,marginBottom:10}}>⏳</div>
+                      <div style={{fontSize:14,fontWeight:600,color:T.text,marginBottom:6}}>Collecting baseline data…</div>
+                      <div style={{fontSize:12,color:T.muted,marginBottom:16}}>Personalised recommendations will be ready on Day 8 after analysing 7 days of CGM, wearable and nutrition data.</div>
+                      <div style={{background:T.slateBg,borderRadius:10,padding:"8px 16px",display:"inline-block",fontSize:12,color:T.muted}}>Day {prog.day} of 7 · {Math.round((prog.day/7)*100)}% collected</div>
+                    </div>
+                  ):(
+                    <div style={{display:"flex",flexDirection:"column",gap:10}}>
+                      <div style={{padding:"12px 16px",borderRadius:10,background:T.greenLight,border:`1px solid ${T.green}33`,fontSize:13,color:T.text}}><strong style={{color:T.green}}>✓ Reduce refined carbs</strong> — CGM shows consistent post-meal spikes above 160 mg/dL. Aim for &lt;45g net carbs per meal.</div>
+                      <div style={{padding:"12px 16px",borderRadius:10,background:T.skyLight,border:`1px solid ${T.sky}33`,fontSize:13,color:T.text}}><strong style={{color:T.sky}}>✓ Post-meal activity</strong> — A 10-minute walk after meals reduces glucose spikes by up to 30% based on wearable data.</div>
+                      <div style={{padding:"12px 16px",borderRadius:10,background:T.amberLight,border:`1px solid ${T.amber}33`,fontSize:13,color:T.text}}><strong style={{color:T.amber}}>⚠ Sleep quality</strong> — Average 6.8h sleep is contributing to elevated morning glucose. Target 7.5–8h per night.</div>
+                    </div>
+                  )}
+                </div>
+                {/* GP Notes & Referral */}
+                <div style={{background:T.white,borderRadius:14,border:`1px solid ${T.border}`,padding:"20px 24px"}}>
+                  <div style={{fontSize:13,fontWeight:700,color:T.text,marginBottom:14}}>📋 GP Notes & Referral</div>
+                  <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:10,marginBottom:14}}>
+                    {DOCTORS.map(d=>(
+                      <div key={d.id} style={{padding:"12px 14px",borderRadius:10,background:T.slateBg,border:`1px solid ${T.border}`,cursor:"pointer"}} onClick={()=>addToast(`${sel.patient_id} referred to ${d.name} (${d.specialty})`)}>
+                        <div style={{display:"flex",alignItems:"center",gap:8,marginBottom:8}}>
+                          <div style={{width:30,height:30,borderRadius:"50%",background:T.sky,display:"flex",alignItems:"center",justifyContent:"center",fontSize:11,fontWeight:700,color:T.white}}>{d.avatar}</div>
+                          <div><div style={{fontSize:12,fontWeight:700,color:T.text}}>{d.name}</div><div style={{fontSize:10,color:T.muted}}>{d.specialty}</div></div>
+                        </div>
+                        <button style={{padding:"5px 12px",borderRadius:8,background:T.sky,border:"none",color:T.white,fontSize:11,fontWeight:600,cursor:"pointer",fontFamily:"inherit",width:"100%"}}>Refer</button>
+                      </div>
+                    ))}
+                  </div>
+                  <textarea value={recNote} onChange={e=>setRecNote(e.target.value)} placeholder="Add clinical notes or recommendations for this patient…" rows={3}
+                    style={{width:"100%",padding:"10px 14px",borderRadius:9,border:`1.5px solid ${T.border}`,fontSize:13,fontFamily:"inherit",outline:"none",resize:"vertical",boxSizing:"border-box",color:T.text,transition:"border-color 0.15s"}}
+                    onFocus={e=>e.target.style.borderColor=T.sky} onBlur={e=>e.target.style.borderColor=T.border}/>
+                  <button onClick={()=>{if(recNote.trim()){addToast("Note saved to patient record.");setRecNote("");}}} style={{marginTop:10,padding:"9px 20px",borderRadius:9,background:T.navy,border:"none",color:T.white,fontSize:13,fontWeight:700,cursor:"pointer",fontFamily:"inherit"}}>Save Note</button>
+                </div>
+              </>)}
+              {/* Not enrolled */}
+              {!enrolled[sel.patient_id]&&(
+                <div style={{background:T.white,borderRadius:14,border:`2px dashed ${T.border}`,padding:"48px",textAlign:"center"}}>
+                  <div style={{fontSize:36,marginBottom:12}}>📲</div>
+                  <div style={{fontSize:15,fontWeight:700,color:T.text,marginBottom:8}}>Ready to start monitoring?</div>
+                  <div style={{fontSize:13,color:T.muted,marginBottom:20,maxWidth:360,margin:"0 auto 20px"}}>Enrolling this patient will dispatch a CGM kit and wearable device. The 14-day program begins when the patient activates their devices.</div>
+                  <button onClick={()=>{setEnrolled(e=>({...e,[sel.patient_id]:true}));addToast(`${sel.patient_id} enrolled in Diabetes Monitoring Program. CGM kit will be dispatched.`);}} style={{padding:"11px 28px",borderRadius:10,background:T.sky,border:"none",color:T.white,fontSize:14,fontWeight:700,cursor:"pointer",fontFamily:"inherit"}}>Enroll in 14-Day Program →</button>
+                </div>
+              )}
+            </>)}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
 // ─── Nav config ───────────────────────────────────────────────────────────────
-const NAV=[{id:"dashboard",icon:"🏠",label:"Dashboard"},{id:"patients",icon:"👥",label:"Patients"},{id:"alerts",icon:"⚠️",label:"Active Alerts"},{id:"intake",icon:"📥",label:"Intake Queue"},{id:"schedule",icon:"📅",label:"Schedule"},{id:"analytics",icon:"📊",label:"Analytics"},{id:"settings",icon:"⚙️",label:"Settings"}];
-const PAGE_TITLES={dashboard:"Dashboard",patients:"Patients",alerts:"Active Alerts",intake:"Intake Queue",schedule:"Schedule & Calendar",analytics:"Analytics",settings:"Settings"};
+const NAV=[{id:"dashboard",icon:"🏠",label:"Dashboard"},{id:"patients",icon:"👥",label:"Patients"},{id:"alerts",icon:"⚠️",label:"Active Alerts"},{id:"intake",icon:"📥",label:"Intake Queue"},{id:"schedule",icon:"📅",label:"Schedule"},{id:"analytics",icon:"📊",label:"Analytics"},{id:"specialist",icon:"🩺",label:"Specialist"},{id:"settings",icon:"⚙️",label:"Settings"}];
+const PAGE_TITLES={dashboard:"Dashboard",patients:"Patients",alerts:"Active Alerts",intake:"Intake Queue",schedule:"Schedule & Calendar",analytics:"Analytics",specialist:"Specialist Referrals",settings:"Settings"};
 
 // ─── Doctor Shell ─────────────────────────────────────────────────────────────
 function DoctorShell({currentUser,onLogout,appointments,setAppointments,addToast}){
@@ -2217,6 +2579,7 @@ function DoctorShell({currentUser,onLogout,appointments,setAppointments,addToast
       case "intake":    return <PageIntakeQueue addToast={addToast} onNavigate={setPage}/>;
       case "schedule":  return <PageSchedule appointments={appointments} setAppointments={setAppointments} addToast={addToast}/>;
       case "analytics": return <PageAnalytics/>;
+      case "specialist":return <PageSpecialist addToast={addToast}/>;
       case "settings":  return <PageSettings addToast={addToast}/>;
       default: return <PageDashboard onNavigate={setPage}/>;
     }
