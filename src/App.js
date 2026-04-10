@@ -958,12 +958,16 @@ const CONDITION_OPTIONS=[
 
 function PatientOnboarding({currentUser,onComplete}){
   const [step,setStep]=useState(1);
-  const TOTAL=4;
+  const TOTAL=5;
   const [form,setForm]=useState({
     age:"",conditions:[],conditions_other:"",smoking_status:"",
     num_meds:"",telehealth_6m:"",lives_alone:"",
     ed_visits:"",missed_appts:"",days_since_gp:"",
     records:[],
+    // AUSDRISK fields
+    gender:"",indigenous_descent:"",birth_country:"",
+    family_diabetes:"",prior_high_glucose:"",bp_medication:"",
+    veg_fruit_daily:"",physical_activity:"",waist_cm:"",
   });
   const [dragging,setDragging]=useState(false);
   const set=k=>e=>setForm(f=>({...f,[k]:e.target.value}));
@@ -984,10 +988,40 @@ function PatientOnboarding({currentUser,onComplete}){
     if(step===1) return form.age&&form.smoking_status&&form.lives_alone;
     if(step===2) return (form.conditions.length>0||form.conditions_other)&&form.num_meds!=="";
     if(step===3) return form.ed_visits!==""&&form.missed_appts!==""&&form.days_since_gp!==""&&form.telehealth_6m;
+    if(step===4) return true;
+    if(step===5) return form.gender&&form.indigenous_descent&&form.birth_country&&form.family_diabetes&&form.prior_high_glucose&&form.bp_medication&&form.veg_fruit_daily&&form.physical_activity&&form.waist_cm!=="";
     return true;
   }
 
+  function ausdriskScore(){
+    let s=0;
+    const age=parseInt(form.age)||0;
+    if(age>=65) s+=8; else if(age>=55) s+=6; else if(age>=45) s+=4; else if(age>=35) s+=2;
+    if(form.gender==="male") s+=3;
+    if(form.indigenous_descent==="yes") s+=2;
+    if(form.birth_country==="asia_me_nafr_seur") s+=2;
+    if(form.family_diabetes==="yes") s+=3;
+    if(form.prior_high_glucose==="yes") s+=6;
+    if(form.bp_medication==="yes") s+=2;
+    if(form.smoking_status==="current") s+=2;
+    if(form.veg_fruit_daily==="no") s+=1;
+    if(form.physical_activity==="no") s+=2;
+    const waist=parseFloat(form.waist_cm)||0;
+    if(waist>0){
+      const isIndigenousOrAsian=form.indigenous_descent==="yes"||form.birth_country==="asia_me_nafr_seur";
+      if(form.gender==="male"){
+        if(isIndigenousOrAsian){ if(waist>=100) s+=7; else if(waist>=90) s+=4; }
+        else { if(waist>110) s+=7; else if(waist>=102) s+=4; }
+      } else {
+        if(isIndigenousOrAsian){ if(waist>90) s+=7; else if(waist>=80) s+=4; }
+        else { if(waist>100) s+=7; else if(waist>=88) s+=4; }
+      }
+    }
+    return s;
+  }
+
   function handleSubmit(){
+    const score=ausdriskScore();
     const profile={
       ...form,
       age:parseInt(form.age)||0,
@@ -995,6 +1029,8 @@ function PatientOnboarding({currentUser,onComplete}){
       ed_visits:parseInt(form.ed_visits)||0,
       missed_appts:parseInt(form.missed_appts)||0,
       days_since_gp:parseInt(form.days_since_gp)||0,
+      waist_cm:parseFloat(form.waist_cm)||0,
+      ausdrisk_score:score,
       completedAt:new Date().toISOString(),
     };
     onComplete(profile);
@@ -1009,8 +1045,8 @@ function PatientOnboarding({currentUser,onComplete}){
     </button>
   );
 
-  const stepTitles=["Personal & Lifestyle","Medical Profile","Recent History","Medical Records"];
-  const stepIcons=["🧑","🩺","📅","📁"];
+  const stepTitles=["Personal & Lifestyle","Medical Profile","Recent History","Medical Records","Diabetes Risk (AUSDRISK)"];
+  const stepIcons=["🧑","🩺","📅","📁","🩸"];
 
   return(
     <div style={{minHeight:"100vh",background:`linear-gradient(135deg, #0F172A 0%, #1E3A5F 100%)`,display:"flex",alignItems:"center",justifyContent:"center",fontFamily:"DM Sans,sans-serif",padding:"24px"}}>
@@ -1160,6 +1196,120 @@ function PatientOnboarding({currentUser,onComplete}){
               <div style={{marginTop:16,fontSize:12,color:T.muted,fontStyle:"italic",textAlign:"center"}}>
                 This step is optional — you can add records at any time from your Health Summary.
               </div>
+            </div>
+          )}
+
+          {step===5&&(
+            <div>
+              <div style={{padding:"10px 14px",borderRadius:10,background:"#EFF6FF",border:"1px solid #BFDBFE",marginBottom:20,fontSize:12,color:"#1E40AF",lineHeight:1.5}}>
+                <strong>AUSDRISK</strong> — The Australian Type 2 Diabetes Risk Assessment Tool. Your answers help us estimate your 5-year risk of developing type 2 diabetes.
+              </div>
+
+              {/* Q2: Gender */}
+              <div style={{marginBottom:18}}>
+                <label style={{fontSize:12,color:T.muted,fontWeight:600,textTransform:"uppercase",letterSpacing:"0.06em",display:"block",marginBottom:8}}>2. Your gender</label>
+                <div style={{display:"flex",gap:10}}>
+                  <Toggle field="gender" opt="female" label="Female" emoji="♀️"/>
+                  <Toggle field="gender" opt="male"   label="Male"   emoji="♂️"/>
+                </div>
+              </div>
+
+              {/* Q3a: Indigenous descent */}
+              <div style={{marginBottom:18}}>
+                <label style={{fontSize:12,color:T.muted,fontWeight:600,textTransform:"uppercase",letterSpacing:"0.06em",display:"block",marginBottom:6}}>3a. Are you of Aboriginal, Torres Strait Islander, Pacific Islander or Māori descent?</label>
+                <div style={{display:"flex",gap:10}}>
+                  <Toggle field="indigenous_descent" opt="no"  label="No"  emoji=""/>
+                  <Toggle field="indigenous_descent" opt="yes" label="Yes" emoji=""/>
+                </div>
+              </div>
+
+              {/* Q3b: Country of birth */}
+              <div style={{marginBottom:18}}>
+                <label style={{fontSize:12,color:T.muted,fontWeight:600,textTransform:"uppercase",letterSpacing:"0.06em",display:"block",marginBottom:6}}>3b. Where were you born?</label>
+                <div style={{display:"flex",flexDirection:"column",gap:8}}>
+                  {[
+                    {opt:"australia",label:"Australia"},
+                    {opt:"asia_me_nafr_seur",label:"Asia (incl. Indian subcontinent), Middle East, North Africa, Southern Europe"},
+                    {opt:"other",label:"Other"},
+                  ].map(({opt,label})=>(
+                    <button key={opt} type="button" onClick={()=>setForm(f=>({...f,birth_country:opt}))}
+                      style={{padding:"10px 14px",borderRadius:10,border:`2px solid ${form.birth_country===opt?T.sky:T.border}`,background:form.birth_country===opt?T.skyLight:T.white,color:form.birth_country===opt?T.sky:T.muted,fontFamily:"inherit",fontSize:13,fontWeight:form.birth_country===opt?700:400,cursor:"pointer",textAlign:"left",transition:"all 0.15s"}}>
+                      {label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Q4: Family diabetes */}
+              <div style={{marginBottom:18}}>
+                <label style={{fontSize:12,color:T.muted,fontWeight:600,textTransform:"uppercase",letterSpacing:"0.06em",display:"block",marginBottom:6}}>4. Have either of your parents, or any of your brothers or sisters been diagnosed with diabetes (type 1 or 2)?</label>
+                <div style={{display:"flex",gap:10}}>
+                  <Toggle field="family_diabetes" opt="no"  label="No"  emoji=""/>
+                  <Toggle field="family_diabetes" opt="yes" label="Yes" emoji=""/>
+                </div>
+              </div>
+
+              {/* Q5: Prior high glucose */}
+              <div style={{marginBottom:18}}>
+                <label style={{fontSize:12,color:T.muted,fontWeight:600,textTransform:"uppercase",letterSpacing:"0.06em",display:"block",marginBottom:6}}>5. Have you ever been found to have high blood glucose (e.g. in a health check, during illness, or during pregnancy)?</label>
+                <div style={{display:"flex",gap:10}}>
+                  <Toggle field="prior_high_glucose" opt="no"  label="No"  emoji=""/>
+                  <Toggle field="prior_high_glucose" opt="yes" label="Yes" emoji=""/>
+                </div>
+              </div>
+
+              {/* Q6: BP medication */}
+              <div style={{marginBottom:18}}>
+                <label style={{fontSize:12,color:T.muted,fontWeight:600,textTransform:"uppercase",letterSpacing:"0.06em",display:"block",marginBottom:6}}>6. Are you currently taking medication for high blood pressure?</label>
+                <div style={{display:"flex",gap:10}}>
+                  <Toggle field="bp_medication" opt="no"  label="No"  emoji=""/>
+                  <Toggle field="bp_medication" opt="yes" label="Yes" emoji=""/>
+                </div>
+              </div>
+
+              {/* Q8: Veg/fruit */}
+              <div style={{marginBottom:18}}>
+                <label style={{fontSize:12,color:T.muted,fontWeight:600,textTransform:"uppercase",letterSpacing:"0.06em",display:"block",marginBottom:6}}>8. How often do you eat vegetables or fruit?</label>
+                <div style={{display:"flex",gap:10}}>
+                  <Toggle field="veg_fruit_daily" opt="yes" label="Every day"     emoji="🥦"/>
+                  <Toggle field="veg_fruit_daily" opt="no"  label="Not every day" emoji="🚫"/>
+                </div>
+              </div>
+
+              {/* Q9: Physical activity */}
+              <div style={{marginBottom:18}}>
+                <label style={{fontSize:12,color:T.muted,fontWeight:600,textTransform:"uppercase",letterSpacing:"0.06em",display:"block",marginBottom:6}}>9. Do you do at least 2.5 hours of physical activity per week (e.g. 30 min/day on 5+ days)?</label>
+                <div style={{display:"flex",gap:10}}>
+                  <Toggle field="physical_activity" opt="yes" label="Yes" emoji="🏃"/>
+                  <Toggle field="physical_activity" opt="no"  label="No"  emoji="🛋️"/>
+                </div>
+              </div>
+
+              {/* Q10: Waist */}
+              <div style={{marginBottom:8}}>
+                <label style={{fontSize:12,color:T.muted,fontWeight:600,textTransform:"uppercase",letterSpacing:"0.06em",display:"block",marginBottom:6}}>10. Your waist measurement (cm) — measured below the ribs, usually at navel level, while standing</label>
+                <input type="number" min="40" max="200" value={form.waist_cm} onChange={set("waist_cm")} placeholder="e.g. 88"
+                  style={inp} onFocus={e=>e.target.style.borderColor=T.sky} onBlur={e=>e.target.style.borderColor=T.border}/>
+              </div>
+
+              {/* Live score preview */}
+              {form.gender&&form.indigenous_descent&&form.birth_country&&form.family_diabetes&&form.prior_high_glucose&&form.bp_medication&&form.veg_fruit_daily&&form.physical_activity&&form.waist_cm!==""&&(()=>{
+                const sc=ausdriskScore();
+                const [tier,tierColor,tierBg,desc]=
+                  sc>=12?["High Risk","#DC2626","#FEE2E2","Score ≥ 12 — see your doctor about a blood test"]:
+                  sc>=6 ?["Intermediate Risk","#D97706","#FEF3C7","Score 6–11 — discuss your result with your doctor"]:
+                         ["Low Risk","#059669","#D1FAE5","Score ≤ 5 — continue healthy lifestyle habits"];
+                return(
+                  <div style={{marginTop:16,padding:"14px 18px",borderRadius:12,background:tierBg,border:`1.5px solid ${tierColor}22`}}>
+                    <div style={{fontSize:11,color:tierColor,fontWeight:700,textTransform:"uppercase",letterSpacing:"0.08em",marginBottom:2}}>AUSDRISK Score</div>
+                    <div style={{display:"flex",alignItems:"baseline",gap:8,marginBottom:4}}>
+                      <span style={{fontSize:28,fontWeight:800,color:tierColor}}>{sc}</span>
+                      <span style={{fontSize:14,fontWeight:700,color:tierColor}}>{tier}</span>
+                    </div>
+                    <div style={{fontSize:12,color:tierColor,opacity:0.85}}>{desc}</div>
+                  </div>
+                );
+              })()}
             </div>
           )}
 
