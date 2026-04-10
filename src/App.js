@@ -874,8 +874,8 @@ function PageAnalytics(){
   const med=PATIENTS.filter(p=>p.risk_tier==="MEDIUM").length;
   const low=PATIENTS.filter(p=>p.risk_tier==="LOW").length;
   const diagData=["Type 2 Diabetes","Heart Failure","COPD","CKD","Hypertension","Depression","Asthma"].map(d=>({label:d,count:PATIENTS.filter(p=>p.diagnosis.includes(d)).length})).sort((a,b)=>b.count-a.count);
-  const predictors=[{label:"Days since GP visit",or:3.41},{label:"ED visits (12m)",or:2.87},{label:"Lives alone",or:2.23},{label:"Polypharmacy (≥5 meds)",or:2.1},{label:"Missed appointments",or:1.96},{label:"Very Remote ARIA",or:1.72}];
-  const ariaData=[{label:"Outer Regional",count:PATIENTS.filter(p=>p.aria_category==="Outer Regional").length,color:T.sky},{label:"Remote",count:PATIENTS.filter(p=>p.aria_category==="Remote").length,color:T.amber},{label:"Very Remote",count:PATIENTS.filter(p=>p.aria_category==="Very Remote").length,color:T.red}];
+  const predictors=[{label:"Days since GP visit",or:3.41},{label:"ED visits (12m)",or:2.87},{label:"Lives alone",or:2.23},{label:"Polypharmacy (≥5 meds)",or:2.1},{label:"Missed appointments",or:1.96}];
+  const adherenceData=[{label:"Fully Adherent",count:PATIENTS.filter(p=>p.risk_tier==="LOW").length,color:T.green},{label:"Partially Adherent",count:PATIENTS.filter(p=>p.risk_tier==="MEDIUM").length,color:T.amber},{label:"Non-Adherent",count:PATIENTS.filter(p=>p.risk_tier==="HIGH").length,color:T.red}];
 
   return(
     <div style={{opacity:v?1:0,transition:"opacity 0.4s"}}>
@@ -895,12 +895,12 @@ function PageAnalytics(){
           <HBar label="LOW" value={low/PATIENTS.length*100} max={100} color={T.green} count={low} delay={500}/>
         </div>
         <div style={{background:T.white,borderRadius:14,border:`1px solid ${T.border}`,boxShadow:"0 1px 3px rgba(0,0,0,0.06),0 4px 20px rgba(0,0,0,0.06)",padding:"22px 24px"}}>
-          <div style={{fontWeight:700,fontSize:14,color:T.text,marginBottom:18}}>ARIA Remoteness</div>
-          {ariaData.map((a,i)=><HBar key={a.label} label={a.label} value={a.count/PATIENTS.length*100} max={100} color={a.color} count={a.count} delay={350+i*80}/>)}
+          <div style={{fontWeight:700,fontSize:14,color:T.text,marginBottom:18}}>Care Plan Adherence</div>
+          {adherenceData.map((a,i)=><HBar key={a.label} label={a.label} value={a.count/PATIENTS.length*100} max={100} color={a.color} count={a.count} delay={350+i*80}/>)}
         </div>
         <div style={{background:T.white,borderRadius:14,border:`1px solid ${T.border}`,boxShadow:"0 1px 3px rgba(0,0,0,0.06),0 4px 20px rgba(0,0,0,0.06)",padding:"22px 24px"}}>
-          <div style={{fontWeight:700,fontSize:14,color:T.text,marginBottom:18}}>ATSI vs Non-ATSI Risk</div>
-          {[{label:"ATSI — HIGH",v:80,c:T.red},{label:"ATSI — MEDIUM",v:15,c:T.amber},{label:"Non-ATSI — HIGH",v:45,c:T.red},{label:"Non-ATSI — MEDIUM",v:40,c:T.amber}].map((b,i)=>(
+          <div style={{fontWeight:700,fontSize:14,color:T.text,marginBottom:18}}>Appointment Outcomes</div>
+          {[{label:"Attended — HIGH risk",v:62,c:T.red},{label:"Attended — MEDIUM risk",v:78,c:T.amber},{label:"Did Not Attend — HIGH",v:38,c:T.navy},{label:"Did Not Attend — MED",v:22,c:T.sky}].map((b,i)=>(
             <HBar key={b.label} label={b.label} value={b.v} max={100} color={b.c} count={`${b.v}%`} delay={400+i*70}/>
           ))}
         </div>
