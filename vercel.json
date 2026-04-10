@@ -1,5 +1,5 @@
 {
-  "buildCommand": "node scripts/fix-app.js && rm -rf node_modules/.cache && npm run build",
+  "buildCommand": "node scripts/fix-app.js && npm run build",
   "outputDirectory": "build",
   "framework": "create-react-app"
 }
