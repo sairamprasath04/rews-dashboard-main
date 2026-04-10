@@ -44,18 +44,15 @@ const DOCTORS = [
 ];
 
 const DEMO_PATIENT_ID = "P001";
-const API_BASE_URL = process.env.REACT_APP_API_URL;
-
-if (!API_BASE_URL) {
-  throw new Error("Missing REACT_APP_API_URL");
-}
+const BACKEND_URL = process.env.REACT_APP_API_URL || "";
 
 async function getPrediction(payload) {
   try {
-    console.log("API_BASE_URL:", API_BASE_URL);
-    console.log("Predict URL:", `${API_BASE_URL}/predict`);
-
-    const res = await fetch(`${API_BASE_URL}/predict`, {
+    if (!BACKEND_URL) {
+      console.warn("REACT_APP_API_URL not set — prediction unavailable");
+      return null;
+    }
+    const res = await fetch(`${BACKEND_URL}/predict`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
