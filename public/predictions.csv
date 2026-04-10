@@ -1,0 +1,501 @@
+patient_id,age,aria_category,atsi_status,diagnosis,smoking_status,num_meds,ed_visits,missed_appts,days_since_gp,telehealth_6m,lives_alone,dist_to_hosp_km,num_diagnoses,raw_risk_score,risk_probability,risk_tier,recommended_intervention,hospitalised_30d
+P262,66,Very Remote,no,CKD | COPD | Depression,never,10,5,3,284,no,yes,399,3,6,99.3,HIGH,Home Visit,yes
+P126,95,Very Remote,no,CKD | Asthma | Type 2 Diabetes | COPD,former,10,3,6,297,no,no,378,4,7,98.4,HIGH,Home Visit,yes
+P180,95,Very Remote,yes,Asthma | Depression | CKD | Type 2 Diabetes,never,8,3,7,122,no,no,259,4,6,98.0,HIGH,Home Visit,yes
+P186,80,Very Remote,no,COPD | Depression | Heart Failure,current,7,6,5,48,no,no,270,3,6,98.0,HIGH,Home Visit,yes
+P480,88,Outer Regional,no,Type 2 Diabetes | CKD | Asthma | Depression,current,8,5,4,289,no,no,5,4,6,97.8,HIGH,Home Visit,yes
+P312,87,Very Remote,no,Hypertension | COPD | Heart Failure,current,11,2,3,75,no,no,252,3,6,97.8,HIGH,Home Visit,yes
+P176,82,Very Remote,no,Hypertension | Type 2 Diabetes | Depression | CKD,never,8,2,3,262,no,no,374,4,5,97.7,HIGH,Home Visit,yes
+P400,90,Very Remote,no,Heart Failure | CKD | COPD,former,10,3,4,36,no,yes,326,3,7,97.7,HIGH,Home Visit,yes
+P492,94,Outer Regional,no,Depression | Type 2 Diabetes | CKD | COPD,never,9,2,5,360,yes,no,7,4,4,97.6,HIGH,Home Visit,yes
+P145,72,Remote,no,Type 2 Diabetes | Depression | Heart Failure,never,7,3,3,25,no,yes,152,3,5,97.0,HIGH,Home Visit,yes
+P060,85,Very Remote,no,COPD | Heart Failure | Depression | Asthma,current,11,8,1,52,no,no,349,4,6,96.9,HIGH,Home Visit,yes
+P076,82,Very Remote,no,COPD | Asthma | CKD | Type 2 Diabetes,never,11,2,4,338,no,no,95,4,6,96.9,HIGH,Home Visit,yes
+P283,95,Very Remote,no,Depression | COPD | Hypertension | Type 2 Diabetes,never,7,6,4,315,no,no,151,4,6,96.9,HIGH,Home Visit,yes
+P123,93,Very Remote,no,CKD | Type 2 Diabetes | COPD | Heart Failure,former,9,4,0,259,no,no,399,4,5,96.5,HIGH,Home Visit,yes
+P105,65,Very Remote,no,Heart Failure | CKD | Depression,never,7,5,3,357,no,yes,149,3,6,96.4,HIGH,Home Visit,yes
+P100,63,Very Remote,no,Depression | COPD | Type 2 Diabetes,current,8,6,6,213,yes,no,200,3,5,96.4,HIGH,Home Visit,yes
+P313,82,Remote,no,Type 2 Diabetes | Depression | CKD | Heart Failure,never,10,4,1,228,no,no,190,4,6,96.4,HIGH,Home Visit,yes
+P059,73,Remote,no,COPD | Hypertension | Asthma,never,10,7,4,358,no,no,145,3,5,96.3,HIGH,Home Visit,yes
+P476,63,Very Remote,no,Type 2 Diabetes | Asthma,never,7,7,3,68,no,no,377,2,3,96.2,HIGH,Home Visit,yes
+P069,74,Outer Regional,no,COPD | Type 2 Diabetes | Depression,former,8,7,4,188,yes,no,38,3,4,96.1,HIGH,Home Visit,yes
+P434,80,Very Remote,no,Heart Failure | Asthma | CKD,never,8,2,3,253,no,yes,265,3,6,96.0,HIGH,Home Visit,yes
+P474,92,Outer Regional,no,COPD | Depression | Type 2 Diabetes,never,7,4,5,190,yes,no,15,3,5,95.9,HIGH,Home Visit,yes
+P406,79,Outer Regional,no,Heart Failure | Asthma | COPD,never,7,6,4,24,yes,no,20,3,4,95.7,HIGH,Home Visit,yes
+P257,90,Outer Regional,no,Type 2 Diabetes | Asthma | Hypertension,current,10,4,3,234,no,yes,33,3,6,95.6,HIGH,Home Visit,yes
+P041,81,Outer Regional,no,CKD | Hypertension | COPD | Asthma,never,8,6,4,55,yes,no,63,4,3,95.4,HIGH,Home Visit,yes
+P054,79,Remote,no,Type 2 Diabetes | COPD,never,6,3,4,169,no,no,142,2,5,95.2,HIGH,Home Visit,yes
+P139,82,Very Remote,no,Asthma | Heart Failure | Depression | Hypertension,former,10,3,3,40,no,yes,360,4,6,95.2,HIGH,Home Visit,yes
+P285,95,Very Remote,no,COPD | Type 2 Diabetes | Heart Failure,current,6,5,2,141,no,no,358,3,6,95.1,HIGH,Home Visit,yes
+P254,86,Very Remote,no,Heart Failure | Hypertension | Depression | CKD,never,9,4,0,178,no,no,156,4,5,95.0,HIGH,Home Visit,yes
+P088,73,Very Remote,yes,Depression | COPD | Hypertension,never,7,5,3,114,no,yes,341,3,5,95.0,HIGH,Home Visit,yes
+P467,79,Very Remote,no,Asthma | Depression | CKD,never,8,4,5,330,no,yes,121,3,6,95.0,HIGH,Home Visit,yes
+P424,85,Outer Regional,yes,Depression | Hypertension | CKD | COPD,former,11,4,3,281,yes,no,21,4,5,94.8,HIGH,Home Visit,yes
+P055,86,Remote,no,CKD | Type 2 Diabetes | COPD,current,8,3,0,266,no,no,200,3,6,94.6,HIGH,Home Visit,yes
+P071,74,Remote,no,Heart Failure | COPD | Type 2 Diabetes,never,6,9,0,121,no,yes,156,3,5,94.5,HIGH,Home Visit,yes
+P072,95,Very Remote,no,Hypertension | Heart Failure | Depression,current,7,4,6,144,yes,no,307,3,5,94.3,HIGH,Home Visit,yes
+P184,76,Outer Regional,no,Asthma | Heart Failure | Type 2 Diabetes,former,9,6,4,204,yes,no,32,3,4,94.2,HIGH,Home Visit,yes
+P382,57,Very Remote,no,Heart Failure | CKD,current,7,8,2,314,no,no,145,2,5,94.0,HIGH,Home Visit,yes
+P073,67,Outer Regional,no,CKD | Hypertension | Asthma,never,7,7,6,233,yes,yes,86,3,3,94.0,HIGH,Home Visit,yes
+P324,95,Very Remote,no,Type 2 Diabetes | CKD | COPD,former,7,7,4,112,no,yes,302,3,7,94.0,HIGH,Home Visit,yes
+P119,88,Remote,no,CKD | Heart Failure | Asthma,never,9,3,3,81,no,no,92,3,5,93.8,HIGH,Home Visit,yes
+P397,37,Very Remote,no,Type 2 Diabetes | Heart Failure | Depression,never,7,3,5,142,no,no,245,3,5,93.7,HIGH,Home Visit,yes
+P273,88,Very Remote,no,Type 2 Diabetes | Depression | Hypertension,former,7,5,0,236,no,yes,117,3,6,93.6,HIGH,Home Visit,yes
+P327,88,Very Remote,no,Heart Failure | COPD,never,5,6,2,225,no,no,330,2,5,93.5,HIGH,Home Visit,yes
+P253,95,Very Remote,no,CKD | Hypertension | Type 2 Diabetes,current,8,7,0,211,no,yes,240,3,7,93.4,HIGH,Home Visit,yes
+P317,80,Outer Regional,no,COPD | CKD | Heart Failure | Asthma,never,8,2,4,70,yes,no,6,4,3,93.4,HIGH,Home Visit,yes
+P368,68,Outer Regional,no,COPD | Asthma | Type 2 Diabetes,former,8,3,5,275,no,no,100,3,3,93.3,HIGH,Home Visit,yes
+P024,42,Very Remote,no,Type 2 Diabetes | Depression,former,7,4,4,128,no,no,135,2,5,93.3,HIGH,Home Visit,yes
+P267,95,Outer Regional,no,COPD | Depression | CKD | Heart Failure,former,9,3,7,39,yes,yes,70,4,4,93.3,HIGH,Home Visit,yes
+P428,80,Outer Regional,no,CKD | Hypertension | Depression,former,9,5,3,21,yes,no,44,3,3,93.1,HIGH,Home Visit,yes
+P490,83,Very Remote,no,COPD | Type 2 Diabetes,never,8,4,4,309,no,no,395,2,5,93.1,HIGH,Home Visit,yes
+P462,68,Outer Regional,yes,Type 2 Diabetes | CKD | Hypertension,never,7,6,3,47,yes,no,22,3,3,92.6,HIGH,Home Visit,yes
+P230,80,Outer Regional,no,CKD | COPD | Type 2 Diabetes,current,6,3,3,165,yes,no,87,3,6,92.5,HIGH,Home Visit,yes
+P026,69,Outer Regional,no,CKD | Type 2 Diabetes | Heart Failure,current,7,3,7,20,yes,no,98,3,4,92.3,HIGH,Home Visit,yes
+P107,95,Very Remote,yes,CKD | Type 2 Diabetes | Asthma,never,10,7,1,96,no,no,345,3,6,92.3,HIGH,Home Visit,yes
+P178,94,Very Remote,no,COPD | Asthma | Heart Failure,never,10,2,2,113,no,no,355,3,5,92.2,HIGH,Home Visit,yes
+P457,66,Very Remote,no,Hypertension | CKD,never,8,0,4,334,no,no,233,2,3,92.2,HIGH,Home Visit,yes
+P421,95,Very Remote,no,Asthma | Heart Failure | Depression | CKD,never,12,5,1,33,no,no,336,4,5,92.0,HIGH,Home Visit,yes
+P365,80,Outer Regional,no,Heart Failure | CKD | COPD | Asthma,never,9,4,2,324,yes,no,83,4,4,92.0,HIGH,Home Visit,yes
+P122,51,Very Remote,no,Depression | Hypertension | CKD,never,9,3,4,345,no,no,135,3,4,91.9,HIGH,Home Visit,yes
+P447,74,Very Remote,no,COPD | Type 2 Diabetes,never,8,0,3,298,no,no,284,2,3,91.9,HIGH,Home Visit,yes
+P270,70,Outer Regional,no,Heart Failure | CKD | Asthma,never,9,3,7,333,yes,no,62,3,4,91.9,HIGH,Home Visit,yes
+P282,79,Remote,no,Asthma | Hypertension,never,6,1,5,277,no,no,133,2,4,91.9,HIGH,Home Visit,yes
+P429,87,Remote,no,CKD | Type 2 Diabetes | Hypertension,former,7,2,0,229,no,no,171,3,4,91.8,HIGH,Home Visit,yes
+P120,81,Outer Regional,no,Asthma | CKD | COPD,never,10,4,1,239,yes,no,23,3,4,91.6,HIGH,Home Visit,yes
+P496,77,Outer Regional,no,Heart Failure | COPD | Depression,current,10,6,3,185,no,no,84,3,7,91.6,HIGH,Home Visit,yes
+P260,81,Very Remote,yes,Heart Failure | Hypertension | Type 2 Diabetes,former,10,4,6,69,no,yes,104,3,6,91.5,HIGH,Home Visit,yes
+P162,82,Remote,no,Type 2 Diabetes | CKD | Depression | COPD,former,10,3,0,3,no,no,109,4,5,91.4,HIGH,Home Visit,yes
+P377,83,Very Remote,no,CKD | Asthma | COPD | Depression,former,10,3,0,244,yes,no,167,4,4,91.4,HIGH,Home Visit,yes
+P113,69,Very Remote,no,Heart Failure | Type 2 Diabetes,never,6,4,3,359,no,no,340,2,4,91.3,HIGH,Home Visit,yes
+P464,71,Very Remote,no,Depression | Asthma | Type 2 Diabetes,never,9,2,4,29,no,no,137,3,3,91.3,HIGH,Home Visit,yes
+P303,81,Outer Regional,no,Heart Failure | CKD | Depression,never,9,2,6,244,yes,yes,78,3,4,91.0,HIGH,Home Visit,yes
+P223,80,Outer Regional,yes,CKD | COPD | Heart Failure | Hypertension,current,8,4,1,190,no,no,38,4,5,90.9,HIGH,Home Visit,yes
+P106,75,Very Remote,no,Type 2 Diabetes | Depression,current,6,2,7,279,no,yes,177,2,7,90.8,HIGH,Home Visit,yes
+P182,52,Outer Regional,no,Heart Failure | Type 2 Diabetes | Depression,current,7,9,4,65,yes,yes,46,3,4,90.7,HIGH,Home Visit,yes
+P153,55,Very Remote,no,Heart Failure | CKD,never,8,1,3,181,yes,no,330,2,3,90.5,HIGH,Home Visit,yes
+P227,69,Very Remote,yes,COPD | Hypertension,never,8,1,5,359,no,no,294,2,3,90.4,HIGH,Home Visit,yes
+P300,79,Outer Regional,yes,Type 2 Diabetes | Hypertension | CKD,former,8,8,1,311,no,no,5,3,4,90.4,HIGH,Home Visit,yes
+P052,61,Very Remote,no,CKD | COPD,never,7,6,2,253,no,no,301,2,3,90.3,HIGH,Home Visit,yes
+P161,50,Remote,no,CKD | Type 2 Diabetes | Asthma,former,10,1,2,193,no,no,137,3,4,90.3,HIGH,Home Visit,yes
+P299,82,Outer Regional,no,Depression | Hypertension | Asthma,former,7,4,7,45,no,no,55,3,3,90.2,HIGH,Home Visit,yes
+P315,91,Very Remote,yes,Type 2 Diabetes | Heart Failure | COPD,never,7,3,0,270,no,yes,262,3,6,90.2,HIGH,Home Visit,yes
+P316,68,Outer Regional,no,Hypertension | CKD | Asthma,never,9,3,3,326,no,no,73,3,3,90.0,HIGH,Home Visit,yes
+P208,77,Very Remote,yes,Depression | Heart Failure | COPD,former,6,2,6,26,yes,no,282,3,3,90.0,HIGH,Home Visit,yes
+P092,85,Outer Regional,no,CKD | Hypertension | COPD,never,7,2,5,176,yes,no,10,3,3,89.9,HIGH,Home Visit,yes
+P372,76,Very Remote,no,Heart Failure | Depression | Asthma,former,10,5,2,3,no,yes,384,3,5,89.8,HIGH,Home Visit,yes
+P485,54,Very Remote,no,CKD | Heart Failure,never,8,0,1,199,no,no,296,2,3,89.8,HIGH,Home Visit,yes
+P275,50,Very Remote,yes,CKD | Hypertension,never,8,0,3,225,no,no,95,2,3,89.5,HIGH,Home Visit,yes
+P038,32,Very Remote,no,COPD | CKD | Type 2 Diabetes,never,6,1,0,334,yes,yes,206,3,3,89.3,HIGH,Home Visit,yes
+P221,95,Outer Regional,no,COPD | Depression | Type 2 Diabetes,never,6,3,2,277,yes,no,35,3,4,89.1,HIGH,Home Visit,yes
+P226,87,Remote,no,Depression | Asthma | Heart Failure | Hypertension,never,9,9,1,322,yes,no,121,4,3,88.8,HIGH,Home Visit,yes
+P454,77,Remote,no,Type 2 Diabetes | CKD | Asthma,never,8,3,2,217,no,no,108,3,5,88.5,HIGH,Home Visit,yes
+P235,95,Outer Regional,no,CKD | Heart Failure | Asthma | COPD,current,11,2,2,347,yes,no,79,4,5,88.5,HIGH,Home Visit,yes
+P302,57,Very Remote,no,COPD | Heart Failure | Asthma,current,7,1,0,325,no,yes,197,3,5,88.4,HIGH,Home Visit,yes
+P339,75,Very Remote,no,Asthma | Depression | Hypertension,current,7,3,0,277,no,no,193,3,5,88.3,HIGH,Home Visit,yes
+P121,82,Outer Regional,no,Depression | Asthma | CKD,current,7,5,2,264,yes,no,68,3,4,88.3,HIGH,Home Visit,yes
+P167,82,Very Remote,no,Asthma | COPD | CKD,never,9,10,0,282,yes,no,187,3,3,88.2,HIGH,Home Visit,yes
+P168,95,Outer Regional,no,Asthma | COPD | Heart Failure | Depression,former,9,4,3,194,yes,no,66,4,5,87.7,HIGH,Home Visit,yes
+P021,94,Very Remote,no,CKD | Hypertension | COPD,never,4,4,4,23,yes,no,214,3,3,87.7,HIGH,Home Visit,yes
+P354,65,Very Remote,no,COPD,current,5,4,5,219,no,yes,274,1,6,87.5,HIGH,Home Visit,yes
+P350,64,Remote,no,Depression | Asthma,never,6,8,7,75,no,no,80,2,3,87.3,HIGH,Home Visit,yes
+P328,82,Outer Regional,no,CKD | Hypertension | Heart Failure | Depression,never,10,2,1,188,yes,no,69,4,4,87.1,HIGH,Home Visit,yes
+P146,82,Outer Regional,no,Hypertension | CKD,never,8,3,3,165,yes,no,89,2,4,86.9,HIGH,Home Visit,yes
+P335,85,Remote,no,Depression | Hypertension | Heart Failure,never,8,8,1,204,yes,yes,112,3,4,86.8,HIGH,Home Visit,yes
+P374,85,Very Remote,no,Depression | CKD | Type 2 Diabetes,never,5,4,2,139,yes,no,225,3,4,86.6,HIGH,Home Visit,yes
+P174,74,Remote,no,COPD | Type 2 Diabetes,former,5,3,4,33,no,no,177,2,3,86.5,HIGH,Home Visit,yes
+P111,33,Very Remote,no,COPD,never,3,6,0,96,no,no,367,1,3,86.5,HIGH,Home Visit,yes
+P004,95,Remote,no,Asthma | Depression | Type 2 Diabetes | COPD,never,9,3,0,137,no,no,58,4,5,86.5,HIGH,Home Visit,yes
+P141,72,Outer Regional,yes,Asthma | CKD,former,7,4,3,297,yes,no,94,2,3,86.2,HIGH,Home Visit,yes
+P373,94,Outer Regional,no,Asthma | Heart Failure,former,6,4,3,108,yes,yes,40,2,4,86.1,HIGH,Home Visit,yes
+P237,31,Remote,no,Depression,current,5,3,3,336,no,no,147,1,5,86.1,HIGH,Home Visit,yes
+P033,67,Very Remote,no,Hypertension | COPD | Depression,former,10,1,0,327,no,no,328,3,3,85.4,HIGH,Home Visit,yes
+P304,78,Very Remote,no,COPD | Heart Failure | Depression,never,7,2,0,128,no,no,134,3,4,85.3,HIGH,Home Visit,yes
+P375,95,Outer Regional,no,Hypertension | COPD | Type 2 Diabetes | Depression,never,6,3,0,201,yes,no,80,4,4,85.3,HIGH,Home Visit,yes
+P216,81,Very Remote,no,Hypertension | Depression,never,5,1,0,360,no,no,370,2,3,85.2,HIGH,Home Visit,yes
+P136,95,Outer Regional,no,Hypertension | Heart Failure | Depression | Asthma,former,12,3,0,343,yes,no,66,4,4,85.0,HIGH,Home Visit,yes
+P468,81,Very Remote,no,Asthma | CKD | COPD,current,5,5,2,181,no,no,360,3,5,85.0,HIGH,Home Visit,yes
+P471,63,Outer Regional,no,COPD,current,1,6,5,332,no,yes,64,1,4,84.5,HIGH,Home Visit,yes
+P351,73,Remote,no,CKD,current,1,3,5,212,no,no,110,1,5,84.1,HIGH,Home Visit,yes
+P383,29,Outer Regional,no,Type 2 Diabetes | Heart Failure | Hypertension,former,6,5,4,121,yes,no,85,3,3,84.0,HIGH,Home Visit,yes
+P378,71,Outer Regional,no,COPD | Heart Failure,former,8,2,4,273,yes,no,35,2,3,83.9,HIGH,Home Visit,yes
+P307,90,Very Remote,yes,Hypertension | Type 2 Diabetes,never,5,3,0,242,no,no,174,2,4,83.8,HIGH,Home Visit,yes
+P154,72,Very Remote,no,Hypertension | Type 2 Diabetes | Heart Failure,current,4,2,4,119,yes,yes,191,3,4,83.4,HIGH,Home Visit,yes
+P150,73,Remote,no,CKD | Asthma | Type 2 Diabetes,never,5,4,3,125,no,no,141,3,5,83.4,HIGH,Home Visit,no
+P204,86,Outer Regional,no,Asthma | COPD | CKD | Hypertension,never,7,8,0,300,yes,yes,62,4,3,83.2,HIGH,Home Visit,yes
+P165,85,Outer Regional,yes,Depression | Heart Failure | COPD,former,8,2,1,203,yes,no,47,3,3,83.2,HIGH,Home Visit,yes
+P018,73,Very Remote,no,Type 2 Diabetes | Hypertension,never,6,0,3,123,no,yes,233,2,4,83.1,HIGH,Home Visit,yes
+P098,72,Outer Regional,no,COPD | Depression | Hypertension,never,8,2,6,226,yes,no,53,3,2,83.0,HIGH,Home Visit,yes
+P158,76,Very Remote,no,Asthma | Type 2 Diabetes,current,3,1,4,291,no,yes,118,2,6,82.9,HIGH,Home Visit,yes
+P203,87,Outer Regional,no,Hypertension | COPD | CKD | Heart Failure,current,10,2,0,202,yes,no,60,4,5,82.8,HIGH,Home Visit,yes
+P035,82,Outer Regional,no,Asthma | Hypertension | Type 2 Diabetes,current,10,2,1,200,no,no,100,3,4,82.7,HIGH,Home Visit,yes
+P163,88,Outer Regional,no,Hypertension | COPD | Type 2 Diabetes,never,10,2,2,167,yes,no,15,3,3,82.4,HIGH,Home Visit,yes
+P090,77,Remote,no,Hypertension | COPD,former,6,1,0,227,no,no,191,2,3,82.4,HIGH,Home Visit,yes
+P431,46,Very Remote,no,Heart Failure,current,6,0,4,218,no,no,380,1,4,82.4,HIGH,Home Visit,yes
+P045,41,Remote,no,CKD | COPD,current,6,3,1,129,no,no,120,2,4,82.4,HIGH,Home Visit,yes
+P142,91,Very Remote,no,COPD | Type 2 Diabetes,never,4,4,7,331,no,no,275,2,5,82.3,HIGH,Home Visit,yes
+P274,68,Very Remote,no,Depression | CKD,never,8,1,0,345,yes,yes,396,2,2,82.2,HIGH,Home Visit,yes
+P152,74,Outer Regional,no,Depression | Heart Failure,never,8,6,2,214,yes,yes,34,2,2,82.2,HIGH,Home Visit,yes
+P450,48,Remote,no,CKD,former,0,8,5,61,no,no,136,1,3,82.1,HIGH,Home Visit,yes
+P479,95,Outer Regional,no,CKD | Depression,former,5,9,5,21,yes,no,76,2,3,81.9,HIGH,Home Visit,yes
+P079,69,Very Remote,no,CKD | COPD | Asthma,former,7,4,2,47,no,yes,129,3,3,81.9,HIGH,Home Visit,yes
+P362,95,Very Remote,yes,Heart Failure | CKD,never,6,5,1,45,yes,no,171,2,3,81.7,HIGH,Home Visit,yes
+P289,73,Outer Regional,no,Hypertension | COPD | Asthma,current,6,7,0,311,no,yes,57,3,3,81.7,HIGH,Home Visit,yes
+P371,68,Outer Regional,yes,Asthma | Depression | Type 2 Diabetes,never,7,6,0,175,no,no,46,3,3,81.6,HIGH,Home Visit,yes
+P478,73,Very Remote,no,Hypertension | CKD | Asthma,never,7,4,2,78,no,no,305,3,2,81.5,HIGH,Home Visit,yes
+P393,44,Very Remote,no,COPD,former,6,0,2,223,yes,no,309,1,1,81.0,HIGH,Home Visit,yes
+P394,95,Outer Regional,no,Type 2 Diabetes | Hypertension | CKD | COPD,former,10,2,4,131,no,no,100,4,5,80.7,HIGH,Home Visit,yes
+P147,45,Outer Regional,no,Hypertension | Heart Failure,current,9,1,7,330,no,no,58,2,3,80.7,HIGH,Home Visit,yes
+P042,71,Outer Regional,no,CKD | Hypertension | Heart Failure,former,10,5,2,166,no,yes,62,3,4,80.4,HIGH,Home Visit,yes
+P207,77,Very Remote,no,Asthma,former,2,1,1,352,no,no,378,1,3,80.1,HIGH,Home Visit,yes
+P433,63,Very Remote,no,CKD | Hypertension,never,8,1,2,238,no,no,158,2,2,80.1,HIGH,Home Visit,yes
+P097,73,Outer Regional,no,Depression | Hypertension | COPD,never,9,5,0,225,yes,no,97,3,2,79.9,HIGH,Home Visit,yes
+P232,71,Outer Regional,no,Asthma | Type 2 Diabetes | Depression,never,6,4,1,238,yes,no,20,3,3,79.8,HIGH,Home Visit,yes
+P118,46,Very Remote,no,Hypertension | Type 2 Diabetes,former,2,0,3,296,no,yes,372,2,4,79.8,HIGH,Home Visit,yes
+P437,95,Very Remote,no,Heart Failure | Asthma | CKD,never,7,2,2,191,no,no,163,3,4,79.7,HIGH,Home Visit,yes
+P065,82,Outer Regional,no,Type 2 Diabetes | COPD | CKD,current,9,5,2,155,yes,no,66,3,5,79.5,HIGH,Home Visit,yes
+P389,85,Very Remote,no,Hypertension | Heart Failure,never,4,3,2,294,yes,no,399,2,3,79.4,HIGH,Home Visit,yes
+P323,53,Very Remote,no,Type 2 Diabetes | Depression,never,6,2,0,200,no,no,245,2,3,79.3,HIGH,Home Visit,yes
+P395,89,Very Remote,no,Heart Failure | Asthma | Depression,never,4,6,0,51,no,no,259,3,3,79.0,HIGH,Home Visit,yes
+P066,92,Outer Regional,no,Heart Failure | CKD | Type 2 Diabetes,current,9,2,4,26,no,no,41,3,4,79.0,HIGH,Home Visit,yes
+P007,95,Outer Regional,no,Hypertension | COPD | Type 2 Diabetes | Asthma,current,8,5,1,33,yes,no,64,4,3,79.0,HIGH,Home Visit,yes
+P190,40,Outer Regional,no,Depression | Type 2 Diabetes,former,7,6,1,72,yes,no,36,2,2,78.9,HIGH,Home Visit,yes
+P157,95,Outer Regional,no,CKD | Heart Failure | Type 2 Diabetes,former,4,3,1,244,yes,yes,26,3,4,78.8,HIGH,Home Visit,yes
+P407,48,Very Remote,no,Depression,never,1,0,4,314,no,yes,329,1,4,78.4,HIGH,Home Visit,yes
+P422,95,Outer Regional,no,Hypertension | CKD | COPD,former,5,7,2,42,yes,yes,14,3,2,78.2,HIGH,Home Visit,yes
+P435,95,Remote,no,COPD | Heart Failure | Type 2 Diabetes,never,6,2,0,164,no,no,131,3,4,77.9,HIGH,Home Visit,yes
+P191,59,Remote,no,Heart Failure | Type 2 Diabetes,current,5,1,2,201,no,yes,101,2,4,77.6,HIGH,Home Visit,yes
+P452,85,Remote,no,Hypertension | Depression | Asthma,never,9,4,1,347,no,no,122,3,4,77.5,HIGH,Home Visit,yes
+P001,76,Remote,yes,Depression | Asthma,former,6,2,0,112,no,no,183,2,3,77.5,HIGH,Home Visit,yes
+P198,70,Very Remote,yes,Type 2 Diabetes | Asthma | Heart Failure,never,9,2,0,19,no,no,294,3,1,77.4,HIGH,Home Visit,yes
+P346,72,Remote,no,CKD | Type 2 Diabetes | Heart Failure,never,8,8,2,364,yes,no,192,3,3,77.4,HIGH,Home Visit,yes
+P359,73,Outer Regional,no,COPD | Type 2 Diabetes,former,8,4,4,84,yes,no,58,2,2,77.3,HIGH,Home Visit,yes
+P259,75,Outer Regional,yes,COPD | Depression | Asthma,never,6,2,4,111,yes,no,96,3,3,77.3,HIGH,Home Visit,yes
+P238,71,Very Remote,no,Asthma | Depression | CKD,former,9,3,2,344,no,no,167,3,3,77.2,HIGH,Home Visit,yes
+P255,40,Remote,no,Heart Failure,current,6,4,0,252,no,no,111,1,4,77.1,HIGH,Home Visit,yes
+P202,78,Very Remote,yes,Asthma | Heart Failure,former,3,3,0,252,no,no,152,2,4,77.1,HIGH,Home Visit,yes
+P252,84,Very Remote,no,Asthma | COPD | Heart Failure,former,5,2,3,82,yes,no,327,3,3,77.0,HIGH,Home Visit,no
+P319,73,Outer Regional,no,COPD | Depression,never,6,1,4,314,no,no,100,2,2,76.3,HIGH,Home Visit,yes
+P095,60,Remote,no,COPD,former,3,2,4,351,no,yes,148,1,4,76.1,HIGH,Home Visit,yes
+P057,52,Very Remote,no,Type 2 Diabetes,former,4,6,1,362,no,no,321,1,3,76.1,HIGH,Home Visit,yes
+P183,48,Very Remote,no,Hypertension,former,6,1,3,48,no,no,268,1,2,76.0,HIGH,Home Visit,yes
+P138,62,Outer Regional,no,Heart Failure | CKD | Type 2 Diabetes,former,8,3,0,69,yes,no,82,3,2,75.8,HIGH,Home Visit,yes
+P251,45,Very Remote,yes,Heart Failure,never,5,6,1,48,no,no,138,1,2,75.8,HIGH,Home Visit,yes
+P380,53,Remote,no,COPD | CKD,former,6,1,1,307,yes,no,137,2,1,75.7,HIGH,Home Visit,yes
+P430,36,Outer Regional,no,Type 2 Diabetes,current,5,0,4,190,yes,yes,49,1,3,75.4,HIGH,Home Visit,yes
+P053,55,Remote,yes,Heart Failure,current,2,2,3,90,no,no,111,1,4,74.9,HIGH,Home Visit,yes
+P173,66,Very Remote,no,Hypertension | Depression | Asthma,never,10,1,1,95,yes,no,282,3,2,74.7,HIGH,Home Visit,yes
+P210,95,Outer Regional,no,Heart Failure | Hypertension | Depression,former,7,5,1,279,no,no,46,3,3,74.6,HIGH,Home Visit,yes
+P329,79,Outer Regional,yes,Asthma | Hypertension | Depression,never,8,6,0,350,yes,no,83,3,3,74.4,HIGH,Home Visit,yes
+P398,92,Very Remote,no,COPD | CKD,current,6,1,0,103,no,yes,331,2,5,74.3,HIGH,Home Visit,yes
+P219,59,Very Remote,no,Hypertension,never,7,2,3,84,no,no,97,1,2,74.3,HIGH,Home Visit,yes
+P179,63,Very Remote,no,COPD | Hypertension,never,4,3,4,188,no,no,305,2,4,74.3,HIGH,Home Visit,yes
+P352,94,Outer Regional,no,Hypertension | Asthma,never,7,1,3,184,yes,no,22,2,3,74.2,HIGH,Home Visit,yes
+P305,67,Outer Regional,no,Type 2 Diabetes | Hypertension,current,7,2,2,295,no,no,70,2,2,74.1,HIGH,Home Visit,yes
+P408,65,Outer Regional,no,Hypertension | CKD | COPD,former,8,1,3,268,yes,yes,27,3,2,74.0,HIGH,Home Visit,yes
+P144,71,Very Remote,no,Heart Failure | Hypertension,never,6,0,1,142,yes,no,137,2,1,74.0,HIGH,Home Visit,yes
+P361,77,Remote,no,Heart Failure,never,6,1,2,126,no,no,200,1,3,73.6,HIGH,Home Visit,yes
+P460,46,Outer Regional,no,Heart Failure | Depression | COPD,never,7,1,2,208,yes,yes,8,3,2,73.5,HIGH,Home Visit,yes
+P032,95,Outer Regional,no,COPD | Type 2 Diabetes | Hypertension,never,7,2,2,272,no,no,61,3,2,72.7,HIGH,Home Visit,yes
+P043,65,Outer Regional,no,Type 2 Diabetes | COPD,current,6,0,4,175,yes,no,40,2,3,72.5,HIGH,Home Visit,yes
+P233,68,Outer Regional,no,Asthma | COPD,former,6,0,5,353,yes,yes,11,2,2,72.3,HIGH,Home Visit,yes
+P181,79,Remote,no,Asthma | Depression,former,6,2,1,276,yes,no,114,2,2,72.2,HIGH,Home Visit,yes
+P017,49,Remote,no,Type 2 Diabetes | Asthma,former,3,6,0,96,yes,yes,100,2,3,72.0,HIGH,Home Visit,yes
+P056,84,Outer Regional,no,CKD | COPD,current,5,1,3,123,no,yes,57,2,4,71.8,HIGH,Home Visit,yes
+P084,58,Very Remote,no,Type 2 Diabetes | Heart Failure,never,8,1,1,140,no,no,256,2,2,71.8,HIGH,Home Visit,yes
+P414,90,Remote,no,COPD | Asthma,never,5,6,2,327,no,no,187,2,4,71.4,HIGH,Home Visit,no
+P005,63,Outer Regional,no,COPD,never,3,4,4,118,no,no,13,1,3,71.4,HIGH,Home Visit,yes
+P013,72,Outer Regional,no,Hypertension | COPD | Depression,former,8,1,3,182,yes,no,98,3,2,70.7,HIGH,Home Visit,yes
+P213,85,Remote,no,Asthma | COPD,never,6,1,0,309,no,no,40,2,3,70.7,HIGH,Home Visit,yes
+P411,80,Very Remote,yes,CKD | Depression | COPD,never,7,2,0,276,yes,no,328,3,2,70.6,HIGH,Home Visit,yes
+P432,31,Outer Regional,no,Hypertension | CKD | Type 2 Diabetes,current,7,1,3,140,yes,no,95,3,4,70.0,HIGH,Home Visit,yes
+P049,74,Remote,no,Hypertension,never,5,4,7,157,no,yes,65,1,5,69.3,MEDIUM,Telehealth Consult,no
+P243,77,Outer Regional,no,Type 2 Diabetes | CKD,former,3,3,2,128,yes,no,44,2,4,69.1,MEDIUM,Telehealth Consult,yes
+P083,94,Remote,no,Heart Failure | Type 2 Diabetes,never,6,2,1,190,no,no,185,2,3,68.8,MEDIUM,Telehealth Consult,yes
+P298,73,Very Remote,no,Heart Failure | Hypertension,never,3,2,1,104,no,no,345,2,2,68.8,MEDIUM,Telehealth Consult,yes
+P446,80,Outer Regional,yes,Heart Failure | Type 2 Diabetes | COPD,never,4,2,1,303,no,no,26,3,3,68.6,MEDIUM,Telehealth Consult,yes
+P405,59,Remote,yes,CKD | Type 2 Diabetes,never,7,0,4,59,no,no,96,2,3,68.2,MEDIUM,Telehealth Consult,yes
+P188,66,Outer Regional,no,Asthma | COPD | Depression,never,8,1,4,53,yes,no,22,3,1,68.1,MEDIUM,Telehealth Consult,yes
+P008,81,Very Remote,no,Heart Failure | Type 2 Diabetes,former,6,1,1,233,yes,no,214,2,2,68.0,MEDIUM,Telehealth Consult,no
+P322,78,Outer Regional,no,Asthma | Depression,never,5,3,0,129,no,yes,96,2,3,67.6,MEDIUM,Telehealth Consult,yes
+P387,74,Outer Regional,yes,CKD | Type 2 Diabetes,former,3,3,2,144,yes,yes,83,2,3,67.3,MEDIUM,Telehealth Consult,yes
+P244,83,Outer Regional,no,Asthma | Type 2 Diabetes,never,7,4,2,173,yes,no,22,2,3,67.1,MEDIUM,Telehealth Consult,yes
+P135,51,Outer Regional,no,Hypertension | COPD,current,7,1,0,58,yes,no,87,2,1,66.3,MEDIUM,Telehealth Consult,yes
+P332,51,Outer Regional,no,COPD | CKD | Type 2 Diabetes,former,10,1,0,156,yes,yes,71,3,3,66.3,MEDIUM,Telehealth Consult,yes
+P075,20,Outer Regional,no,Depression,never,1,0,4,122,yes,yes,38,1,2,65.8,MEDIUM,Telehealth Consult,yes
+P022,63,Outer Regional,no,Type 2 Diabetes | Asthma,current,7,0,1,283,yes,yes,44,2,2,65.8,MEDIUM,Telehealth Consult,yes
+P172,53,Outer Regional,no,CKD,never,6,1,1,364,yes,no,87,1,1,65.5,MEDIUM,Telehealth Consult,yes
+P497,49,Very Remote,yes,Depression,never,3,3,6,253,no,yes,104,1,5,65.2,MEDIUM,Telehealth Consult,no
+P189,52,Very Remote,no,Heart Failure | Depression,never,6,2,1,110,no,yes,290,2,3,65.0,MEDIUM,Telehealth Consult,yes
+P067,66,Outer Regional,no,Depression,former,1,5,3,159,yes,no,21,1,3,64.9,MEDIUM,Telehealth Consult,yes
+P148,44,Outer Regional,no,Depression,current,3,4,5,288,yes,no,72,1,4,64.8,MEDIUM,Telehealth Consult,yes
+P381,52,Remote,yes,Depression,current,1,2,2,150,no,no,90,1,3,64.5,MEDIUM,Telehealth Consult,yes
+P483,39,Very Remote,no,Asthma,never,4,3,3,281,no,no,284,1,4,64.3,MEDIUM,Telehealth Consult,yes
+P410,77,Very Remote,no,COPD | Heart Failure,former,4,1,4,351,no,no,334,2,5,64.1,MEDIUM,Telehealth Consult,yes
+P175,72,Outer Regional,no,Asthma | COPD,never,8,1,1,59,yes,no,84,2,0,64.0,MEDIUM,Telehealth Consult,yes
+P294,83,Outer Regional,no,Hypertension | Type 2 Diabetes,never,6,4,1,186,yes,no,79,2,3,63.9,MEDIUM,Telehealth Consult,yes
+P051,73,Very Remote,no,CKD | Heart Failure,former,6,0,0,77,no,no,116,2,2,63.8,MEDIUM,Telehealth Consult,yes
+P355,67,Outer Regional,no,Hypertension | Asthma,former,6,0,2,22,no,no,99,2,0,63.7,MEDIUM,Telehealth Consult,yes
+P390,57,Outer Regional,no,Asthma,never,5,0,4,8,no,no,99,1,1,63.5,MEDIUM,Telehealth Consult,yes
+P129,69,Outer Regional,no,Asthma | Heart Failure,former,8,1,6,143,yes,yes,43,2,2,63.2,MEDIUM,Telehealth Consult,no
+P086,58,Outer Regional,yes,COPD,never,7,3,2,343,yes,no,10,1,2,62.8,MEDIUM,Telehealth Consult,yes
+P331,67,Remote,no,CKD | Type 2 Diabetes | Asthma,never,4,7,0,252,no,no,159,3,4,62.6,MEDIUM,Telehealth Consult,yes
+P117,67,Very Remote,no,Hypertension | CKD,never,8,2,2,87,no,no,167,2,1,62.5,MEDIUM,Telehealth Consult,no
+P366,60,Outer Regional,no,COPD,former,1,3,7,212,yes,no,86,1,3,61.8,MEDIUM,Telehealth Consult,yes
+P133,48,Very Remote,no,COPD | Asthma,former,6,0,0,46,no,yes,99,2,2,61.3,MEDIUM,Telehealth Consult,no
+P489,95,Outer Regional,no,Heart Failure | CKD,never,8,3,1,96,yes,yes,82,2,4,61.1,MEDIUM,Telehealth Consult,yes
+P436,69,Outer Regional,no,CKD | Type 2 Diabetes | Asthma,never,8,1,2,49,yes,yes,46,3,1,60.9,MEDIUM,Telehealth Consult,no
+P314,82,Outer Regional,no,Depression | Heart Failure | Asthma | CKD,current,7,2,0,33,no,yes,55,4,3,60.9,MEDIUM,Telehealth Consult,yes
+P392,76,Outer Regional,no,Heart Failure | Asthma,never,4,3,3,60,yes,no,65,2,3,60.8,MEDIUM,Telehealth Consult,yes
+P046,55,Outer Regional,no,Depression,former,6,7,2,145,no,no,51,1,2,60.8,MEDIUM,Telehealth Consult,yes
+P286,32,Outer Regional,no,Asthma | Type 2 Diabetes,never,6,1,1,177,yes,no,82,2,1,60.6,MEDIUM,Telehealth Consult,yes
+P439,37,Outer Regional,no,CKD,never,2,3,0,66,yes,yes,21,1,1,59.0,MEDIUM,Telehealth Consult,yes
+P345,59,Remote,no,Heart Failure | Type 2 Diabetes,never,4,0,1,357,no,yes,42,2,3,58.7,MEDIUM,Telehealth Consult,yes
+P193,71,Very Remote,yes,CKD,never,3,1,2,257,no,no,285,1,2,58.5,MEDIUM,Telehealth Consult,yes
+P499,52,Very Remote,no,Depression | Heart Failure,current,2,5,1,235,no,no,134,2,4,58.5,MEDIUM,Telehealth Consult,no
+P124,42,Outer Regional,no,Asthma,current,3,0,2,257,yes,yes,96,1,2,58.3,MEDIUM,Telehealth Consult,yes
+P326,46,Outer Regional,no,Asthma | Heart Failure | Type 2 Diabetes,never,9,4,0,120,yes,no,87,3,2,58.1,MEDIUM,Telehealth Consult,no
+P205,43,Outer Regional,no,Depression | COPD | CKD,never,4,1,3,361,yes,no,46,3,2,58.0,MEDIUM,Telehealth Consult,yes
+P342,72,Outer Regional,no,Heart Failure | Hypertension,never,8,1,0,177,yes,yes,44,2,1,57.7,MEDIUM,Telehealth Consult,yes
+P170,54,Remote,no,Asthma | CKD,current,5,0,1,262,no,no,187,2,3,57.6,MEDIUM,Telehealth Consult,yes
+P451,66,Outer Regional,no,Asthma | CKD,current,6,1,1,200,yes,yes,91,2,2,57.3,MEDIUM,Telehealth Consult,yes
+P044,62,Outer Regional,no,COPD,never,4,2,2,9,yes,yes,93,1,0,57.3,MEDIUM,Telehealth Consult,yes
+P250,75,Remote,no,CKD | COPD | Type 2 Diabetes,never,5,6,1,347,no,no,64,3,5,56.9,MEDIUM,Telehealth Consult,yes
+P009,59,Very Remote,no,Heart Failure,never,2,1,0,272,no,no,330,1,2,56.7,MEDIUM,Telehealth Consult,yes
+P284,45,Outer Regional,no,Depression | Heart Failure,former,4,0,2,33,yes,yes,90,2,0,56.5,MEDIUM,Telehealth Consult,yes
+P222,34,Outer Regional,no,Type 2 Diabetes,never,3,0,3,308,yes,yes,31,1,2,56.4,MEDIUM,Telehealth Consult,yes
+P416,54,Remote,no,Type 2 Diabetes | COPD,current,5,3,2,218,no,no,65,2,4,56.3,MEDIUM,Telehealth Consult,yes
+P403,68,Outer Regional,no,Heart Failure | CKD | COPD,never,7,1,0,22,yes,yes,88,3,1,55.5,MEDIUM,Telehealth Consult,no
+P104,53,Outer Regional,no,Hypertension | Asthma | Heart Failure,former,10,1,1,192,yes,yes,13,3,2,55.5,MEDIUM,Telehealth Consult,yes
+P177,68,Outer Regional,no,Heart Failure | Depression,former,7,0,1,231,no,no,67,2,1,55.4,MEDIUM,Telehealth Consult,yes
+P386,70,Outer Regional,no,CKD | Depression,never,6,1,3,365,yes,no,74,2,2,55.1,MEDIUM,Telehealth Consult,no
+P019,51,Very Remote,no,Hypertension,current,0,2,2,68,no,no,205,1,2,55.1,MEDIUM,Telehealth Consult,yes
+P003,79,Outer Regional,no,Asthma | Type 2 Diabetes,former,5,1,1,322,no,no,95,2,2,55.1,MEDIUM,Telehealth Consult,yes
+P404,68,Outer Regional,no,Depression | Heart Failure | Hypertension,never,4,4,2,10,yes,no,10,3,1,54.3,MEDIUM,Telehealth Consult,yes
+P099,68,Outer Regional,no,Hypertension,never,2,2,5,284,no,no,20,1,2,53.9,MEDIUM,Telehealth Consult,yes
+P037,71,Outer Regional,no,Heart Failure | Type 2 Diabetes,never,6,4,0,134,yes,yes,46,2,2,53.7,MEDIUM,Telehealth Consult,yes
+P401,39,Outer Regional,no,CKD,never,2,2,6,42,no,no,30,1,1,53.7,MEDIUM,Telehealth Consult,yes
+P134,76,Outer Regional,no,Type 2 Diabetes,current,6,1,3,149,yes,no,18,1,4,53.6,MEDIUM,Telehealth Consult,no
+P271,93,Remote,no,Type 2 Diabetes | Heart Failure,current,5,2,2,145,yes,no,135,2,3,53.3,MEDIUM,Telehealth Consult,yes
+P234,56,Remote,no,Heart Failure | Depression,former,7,1,4,350,yes,no,84,2,2,53.0,MEDIUM,Telehealth Consult,no
+P482,50,Outer Regional,yes,Heart Failure | COPD,never,8,2,1,23,no,no,98,2,1,52.8,MEDIUM,Telehealth Consult,no
+P155,73,Outer Regional,no,Hypertension | COPD,former,2,2,1,9,yes,no,41,2,0,52.4,MEDIUM,Telehealth Consult,yes
+P336,65,Outer Regional,no,CKD | Depression,never,4,3,6,142,no,no,78,2,3,52.4,MEDIUM,Telehealth Consult,yes
+P011,59,Outer Regional,no,Depression | Hypertension,former,5,1,3,192,yes,no,20,2,2,51.9,MEDIUM,Telehealth Consult,yes
+P236,79,Outer Regional,no,CKD | Hypertension | Heart Failure,former,6,3,1,142,no,no,96,3,4,51.8,MEDIUM,Telehealth Consult,no
+P242,65,Outer Regional,no,Asthma,never,4,3,4,67,no,no,66,1,2,51.4,MEDIUM,Telehealth Consult,yes
+P063,48,Very Remote,yes,CKD,current,2,3,1,192,no,yes,290,1,5,51.2,MEDIUM,Telehealth Consult,yes
+P306,70,Outer Regional,no,Asthma,never,4,1,4,90,yes,yes,71,1,2,50.2,MEDIUM,Telehealth Consult,yes
+P340,57,Very Remote,no,Asthma | Hypertension | Heart Failure,never,8,1,1,68,no,no,105,3,1,50.2,MEDIUM,Telehealth Consult,no
+P192,83,Outer Regional,no,Hypertension | Type 2 Diabetes | CKD,current,8,6,2,188,yes,yes,65,3,5,50.1,MEDIUM,Telehealth Consult,no
+P491,67,Very Remote,no,CKD | Type 2 Diabetes,never,3,0,0,97,no,yes,154,2,4,50.0,MEDIUM,Telehealth Consult,no
+P334,55,Outer Regional,yes,Hypertension | COPD,never,7,8,1,181,no,no,52,2,2,50.0,MEDIUM,Telehealth Consult,yes
+P293,57,Outer Regional,no,Asthma | Heart Failure,former,6,0,3,43,yes,no,57,2,1,50.0,MEDIUM,Telehealth Consult,yes
+P291,64,Outer Regional,no,Asthma | Depression,former,6,5,2,273,yes,yes,66,2,2,49.7,MEDIUM,Telehealth Consult,yes
+P388,95,Outer Regional,no,Type 2 Diabetes | Heart Failure | Hypertension | CKD,former,12,5,2,263,no,no,50,4,5,49.5,MEDIUM,Telehealth Consult,no
+P214,79,Remote,no,Depression | CKD,never,7,4,0,57,no,no,58,2,3,49.0,MEDIUM,Telehealth Consult,yes
+P443,30,Outer Regional,no,Heart Failure,never,5,4,2,358,yes,no,18,1,2,48.9,MEDIUM,Telehealth Consult,yes
+P264,49,Very Remote,no,Asthma | Hypertension,never,5,2,0,75,yes,yes,216,2,1,48.4,MEDIUM,Telehealth Consult,no
+P440,67,Very Remote,no,Type 2 Diabetes | Asthma | Heart Failure,former,7,1,0,338,no,yes,140,3,3,48.4,MEDIUM,Telehealth Consult,no
+P472,26,Very Remote,no,COPD,former,1,6,0,291,yes,no,302,1,2,48.1,MEDIUM,Telehealth Consult,no
+P290,56,Very Remote,no,Heart Failure,never,3,5,2,36,no,no,135,1,2,48.0,MEDIUM,Telehealth Consult,yes
+P256,59,Outer Regional,no,Depression,never,7,1,4,229,yes,no,100,1,2,47.9,MEDIUM,Telehealth Consult,no
+P470,57,Very Remote,no,Depression | Hypertension,former,7,1,3,134,yes,no,247,2,2,47.7,MEDIUM,Telehealth Consult,no
+P379,95,Outer Regional,no,CKD | Depression | Hypertension,never,11,5,2,121,yes,no,99,3,4,47.1,MEDIUM,Telehealth Consult,no
+P263,18,Very Remote,no,Heart Failure,former,5,2,3,364,yes,no,325,1,2,47.0,MEDIUM,Telehealth Consult,no
+P413,40,Outer Regional,no,COPD,never,4,1,0,100,no,yes,21,1,1,46.8,MEDIUM,Telehealth Consult,yes
+P225,59,Outer Regional,no,COPD | Hypertension,current,7,0,5,18,yes,no,78,2,2,45.0,MEDIUM,Telehealth Consult,no
+P114,95,Very Remote,no,COPD | Type 2 Diabetes,never,7,5,2,314,no,yes,283,2,5,44.6,MEDIUM,Telehealth Consult,no
+P349,55,Remote,yes,Heart Failure,former,4,0,0,160,no,no,178,1,2,44.4,MEDIUM,Telehealth Consult,yes
+P166,75,Outer Regional,no,Hypertension | Depression,never,6,2,6,164,yes,no,67,2,3,44.3,MEDIUM,Telehealth Consult,no
+P074,95,Outer Regional,no,Depression | Hypertension,never,7,1,4,169,no,no,40,2,3,43.3,MEDIUM,Telehealth Consult,no
+P058,62,Remote,no,Hypertension | Heart Failure | Depression,current,9,2,4,137,no,no,116,3,4,43.3,MEDIUM,Telehealth Consult,no
+P131,40,Very Remote,no,Heart Failure,never,5,3,0,276,no,no,219,1,3,42.8,MEDIUM,Telehealth Consult,yes
+P461,95,Very Remote,no,COPD | Asthma | Type 2 Diabetes,never,7,2,4,143,no,yes,101,3,5,42.7,MEDIUM,Telehealth Consult,no
+P364,75,Very Remote,yes,Type 2 Diabetes | Heart Failure,current,8,2,0,108,no,yes,350,2,5,42.5,MEDIUM,Telehealth Consult,no
+P427,50,Outer Regional,no,Hypertension | CKD | Type 2 Diabetes,current,10,4,6,164,yes,no,74,3,6,41.3,MEDIUM,Telehealth Consult,no
+P292,59,Very Remote,no,Asthma,former,7,1,5,358,no,yes,326,1,4,41.2,MEDIUM,Telehealth Consult,no
+P385,54,Outer Regional,no,COPD,former,1,0,4,234,no,no,84,1,2,41.1,MEDIUM,Telehealth Consult,yes
+P370,54,Remote,no,Asthma | CKD,former,4,0,0,122,no,no,117,2,2,40.6,MEDIUM,Telehealth Consult,yes
+P337,53,Outer Regional,no,CKD,current,2,0,1,293,yes,no,98,1,2,40.6,MEDIUM,Telehealth Consult,yes
+P418,70,Very Remote,no,COPD,never,4,0,5,321,no,no,116,1,3,40.3,MEDIUM,Telehealth Consult,yes
+P444,66,Outer Regional,no,Depression,never,2,1,2,254,no,no,10,1,1,40.1,MEDIUM,Telehealth Consult,yes
+P295,74,Very Remote,no,CKD | Heart Failure,never,6,2,2,92,no,no,209,2,3,39.6,LOW,Proactive Phone Call,no
+P169,63,Outer Regional,no,COPD | Hypertension,never,8,2,5,56,no,no,87,2,1,39.2,LOW,Proactive Phone Call,no
+P465,65,Outer Regional,no,Asthma | Depression | CKD,never,8,1,6,311,yes,no,11,3,2,39.1,LOW,Proactive Phone Call,no
+P426,92,Very Remote,no,Depression | Asthma | Heart Failure,never,10,2,1,95,no,no,242,3,4,39.1,LOW,Proactive Phone Call,no
+P028,74,Outer Regional,no,CKD | Heart Failure,current,8,1,1,207,no,yes,90,2,3,39.1,LOW,Proactive Phone Call,no
+P277,71,Outer Regional,yes,COPD | Hypertension,never,4,0,3,177,yes,no,70,2,2,38.7,LOW,Proactive Phone Call,yes
+P268,42,Outer Regional,no,Depression,former,2,1,3,80,yes,no,81,1,1,38.0,LOW,Proactive Phone Call,yes
+P309,77,Remote,no,Asthma,current,4,5,0,256,yes,no,172,1,4,37.2,LOW,Proactive Phone Call,yes
+P110,66,Very Remote,no,Depression,former,4,1,2,310,yes,no,269,1,1,37.2,LOW,Proactive Phone Call,yes
+P320,65,Outer Regional,no,Depression,never,7,1,3,252,yes,yes,11,1,2,36.9,LOW,Proactive Phone Call,no
+P187,76,Remote,yes,Heart Failure | Asthma,former,5,4,0,245,yes,no,172,2,3,36.9,LOW,Proactive Phone Call,no
+P419,89,Very Remote,no,Asthma | CKD | Hypertension,never,5,4,1,29,no,no,266,3,3,36.8,LOW,Proactive Phone Call,no
+P211,78,Outer Regional,no,Asthma,former,3,3,3,120,yes,no,39,1,4,36.8,LOW,Proactive Phone Call,no
+P010,77,Very Remote,no,CKD | Depression | Type 2 Diabetes,never,4,5,4,273,no,yes,323,3,7,36.6,LOW,Proactive Phone Call,no
+P062,64,Remote,no,Hypertension,never,1,2,5,117,no,no,65,1,3,36.6,LOW,Proactive Phone Call,no
+P215,62,Very Remote,no,CKD,never,4,3,6,333,no,no,367,1,4,36.6,LOW,Proactive Phone Call,no
+P276,76,Outer Regional,no,Asthma | Hypertension,never,5,3,5,332,yes,no,75,2,4,36.4,LOW,Proactive Phone Call,no
+P475,95,Outer Regional,no,Heart Failure | Depression | COPD,former,6,2,0,171,no,no,82,3,3,36.4,LOW,Proactive Phone Call,no
+P096,41,Outer Regional,no,CKD | COPD | Depression,never,6,1,4,52,yes,no,99,3,1,36.3,LOW,Proactive Phone Call,no
+P325,49,Outer Regional,no,Asthma,never,4,3,2,306,yes,no,36,1,2,36.2,LOW,Proactive Phone Call,yes
+P249,95,Very Remote,no,Type 2 Diabetes | Heart Failure,never,6,3,0,47,no,yes,131,2,4,35.7,LOW,Proactive Phone Call,no
+P484,71,Outer Regional,no,Type 2 Diabetes | Depression,never,7,2,6,79,yes,no,60,2,2,34.9,LOW,Proactive Phone Call,no
+P197,52,Outer Regional,yes,Hypertension | Heart Failure,never,9,1,2,291,yes,yes,18,2,1,34.8,LOW,Proactive Phone Call,no
+P159,46,Outer Regional,no,Depression | CKD,never,7,0,4,204,no,no,77,2,2,34.4,LOW,Proactive Phone Call,no
+P209,77,Outer Regional,no,Depression | CKD,never,3,3,2,332,yes,no,75,2,3,34.2,LOW,Proactive Phone Call,yes
+P240,83,Remote,no,Type 2 Diabetes | Heart Failure,former,5,6,2,349,no,no,53,2,4,34.1,LOW,Proactive Phone Call,no
+P415,73,Very Remote,yes,COPD | Depression | Hypertension,never,9,1,1,127,no,no,193,3,2,34.0,LOW,Proactive Phone Call,no
+P195,71,Very Remote,no,Type 2 Diabetes,current,3,2,0,342,no,no,141,1,3,33.8,LOW,Proactive Phone Call,yes
+P212,88,Very Remote,no,Depression | Hypertension | COPD | CKD,current,8,2,1,358,no,no,260,4,4,33.4,LOW,Proactive Phone Call,no
+P082,74,Very Remote,no,Type 2 Diabetes | Hypertension,current,4,0,3,159,no,no,172,2,4,33.1,LOW,Proactive Phone Call,no
+P500,43,Remote,no,Hypertension,never,1,2,5,186,yes,no,153,1,2,32.9,LOW,Proactive Phone Call,no
+P115,64,Very Remote,no,Asthma | Hypertension,never,4,1,3,177,yes,no,362,2,2,32.9,LOW,Proactive Phone Call,no
+P217,54,Remote,no,Depression | Heart Failure | Hypertension,never,8,2,0,178,no,yes,62,3,3,32.3,LOW,Proactive Phone Call,no
+P228,48,Outer Regional,no,Type 2 Diabetes | Asthma,former,4,4,5,211,yes,no,78,2,3,32.0,LOW,Proactive Phone Call,no
+P448,51,Remote,no,Hypertension | CKD | Depression,former,4,1,2,322,no,yes,53,3,3,31.7,LOW,Proactive Phone Call,no
+P281,70,Very Remote,no,Heart Failure,former,3,5,0,321,yes,yes,89,1,3,31.4,LOW,Proactive Phone Call,no
+P087,84,Outer Regional,yes,COPD | Hypertension | Asthma,former,9,2,0,167,yes,no,63,3,2,31.1,LOW,Proactive Phone Call,no
+P224,38,Outer Regional,no,Depression | Heart Failure,former,4,4,1,302,yes,yes,54,2,2,31.0,LOW,Proactive Phone Call,no
+P151,72,Remote,no,Hypertension | Heart Failure,never,6,1,2,51,no,no,121,2,1,30.4,LOW,Proactive Phone Call,no
+P343,72,Outer Regional,no,Hypertension | Depression | COPD,never,6,4,0,44,yes,yes,84,3,1,30.2,LOW,Proactive Phone Call,no
+P376,54,Very Remote,no,CKD,former,3,2,0,358,no,no,318,1,2,30.1,LOW,Proactive Phone Call,no
+P417,95,Outer Regional,no,Heart Failure | COPD,current,5,1,3,47,yes,no,25,2,4,30.1,LOW,Proactive Phone Call,no
+P495,95,Outer Regional,no,Heart Failure | CKD | COPD,former,5,2,0,177,yes,no,80,3,3,30.1,LOW,Proactive Phone Call,no
+P149,77,Outer Regional,no,COPD | CKD,never,3,1,3,309,yes,yes,80,2,3,29.9,LOW,Proactive Phone Call,no
+P030,62,Outer Regional,no,Asthma | Heart Failure | Depression,former,10,3,2,48,no,no,33,3,2,29.8,LOW,Proactive Phone Call,no
+P143,39,Very Remote,no,Heart Failure,current,3,0,7,202,no,no,194,1,4,29.8,LOW,Proactive Phone Call,no
+P248,56,Outer Regional,yes,Depression,former,6,7,1,210,yes,yes,68,1,2,29.4,LOW,Proactive Phone Call,no
+P296,55,Remote,no,Depression,current,1,1,3,83,yes,no,126,1,2,29.2,LOW,Proactive Phone Call,no
+P185,63,Outer Regional,no,Depression,former,5,5,3,24,yes,no,63,1,2,29.2,LOW,Proactive Phone Call,yes
+P473,40,Very Remote,no,Depression,former,3,0,2,67,no,yes,190,1,2,29.1,LOW,Proactive Phone Call,no
+P031,57,Outer Regional,yes,Hypertension | Type 2 Diabetes | COPD,never,8,2,0,336,no,no,18,3,1,28.7,LOW,Proactive Phone Call,no
+P453,50,Remote,no,Asthma,former,2,1,1,183,no,yes,102,1,3,28.6,LOW,Proactive Phone Call,yes
+P356,49,Outer Regional,no,Depression | CKD | COPD,never,8,2,1,314,no,no,64,3,1,28.5,LOW,Proactive Phone Call,no
+P040,71,Outer Regional,yes,Heart Failure | COPD,never,3,2,4,125,yes,no,92,2,3,28.5,LOW,Proactive Phone Call,no
+P258,55,Outer Regional,no,Heart Failure | Asthma,never,5,0,3,2,yes,no,42,2,1,28.3,LOW,Proactive Phone Call,no
+P128,57,Outer Regional,no,COPD | Heart Failure,former,7,0,1,340,yes,no,27,2,2,27.9,LOW,Proactive Phone Call,no
+P459,58,Outer Regional,no,Asthma | COPD,current,6,0,2,124,yes,no,43,2,2,27.7,LOW,Proactive Phone Call,no
+P078,62,Outer Regional,no,Hypertension,former,0,4,3,283,no,no,34,1,3,27.5,LOW,Proactive Phone Call,no
+P068,86,Outer Regional,no,Depression | Hypertension,current,8,2,1,85,yes,no,66,2,2,27.2,LOW,Proactive Phone Call,no
+P160,79,Outer Regional,no,Asthma | Heart Failure,never,6,4,1,51,yes,no,48,2,2,26.8,LOW,Proactive Phone Call,no
+P353,83,Remote,no,Asthma | COPD | Heart Failure,never,6,2,1,8,no,no,96,3,3,26.7,LOW,Proactive Phone Call,no
+P247,59,Outer Regional,no,Heart Failure | Type 2 Diabetes,never,6,0,2,71,yes,no,70,2,0,26.1,LOW,Proactive Phone Call,no
+P109,72,Outer Regional,yes,CKD | Hypertension | COPD,never,4,3,1,263,no,no,23,3,2,26.0,LOW,Proactive Phone Call,no
+P420,69,Outer Regional,no,CKD | Asthma,never,6,3,0,172,yes,yes,66,2,2,26.0,LOW,Proactive Phone Call,no
+P348,42,Outer Regional,no,Asthma,never,5,5,4,16,no,yes,48,1,2,25.6,LOW,Proactive Phone Call,no
+P015,36,Outer Regional,no,Type 2 Diabetes | Asthma,former,2,5,4,86,yes,no,56,2,2,25.6,LOW,Proactive Phone Call,no
+P245,46,Very Remote,no,Asthma,never,2,3,0,12,no,yes,267,1,3,24.9,LOW,Proactive Phone Call,no
+P196,74,Outer Regional,yes,CKD | Hypertension,never,5,1,3,138,yes,no,47,2,2,24.9,LOW,Proactive Phone Call,no
+P493,69,Remote,no,Asthma | COPD,never,2,2,3,213,no,no,192,2,3,24.8,LOW,Proactive Phone Call,no
+P140,45,Outer Regional,no,Asthma,never,1,3,2,262,yes,yes,21,1,2,23.8,LOW,Proactive Phone Call,no
+P102,60,Very Remote,yes,Depression,never,3,3,0,63,yes,no,398,1,1,23.8,LOW,Proactive Phone Call,no
+P301,53,Outer Regional,yes,CKD,never,4,6,5,295,yes,no,53,1,3,23.7,LOW,Proactive Phone Call,no
+P458,49,Outer Regional,no,Hypertension,never,1,2,2,96,yes,yes,100,1,1,23.7,LOW,Proactive Phone Call,no
+P488,48,Very Remote,no,COPD,never,4,0,0,258,yes,no,316,1,1,23.6,LOW,Proactive Phone Call,yes
+P494,52,Very Remote,yes,Hypertension,former,4,3,2,217,no,no,217,1,3,23.6,LOW,Proactive Phone Call,no
+P297,84,Remote,no,COPD | Heart Failure,never,3,2,2,46,yes,yes,60,2,3,23.6,LOW,Proactive Phone Call,no
+P127,50,Outer Regional,no,COPD | Depression,former,3,2,3,98,yes,no,24,2,2,23.5,LOW,Proactive Phone Call,no
+P016,57,Outer Regional,yes,Asthma,former,5,3,3,285,no,yes,32,1,3,23.1,LOW,Proactive Phone Call,no
+P048,87,Outer Regional,no,Type 2 Diabetes | COPD,never,3,1,2,156,yes,yes,76,2,2,22.9,LOW,Proactive Phone Call,no
+P080,32,Outer Regional,no,Hypertension,former,3,1,3,217,no,no,81,1,2,22.8,LOW,Proactive Phone Call,no
+P466,64,Very Remote,no,CKD | Heart Failure,current,4,2,0,227,no,no,281,2,4,22.7,LOW,Proactive Phone Call,no
+P360,53,Very Remote,no,Depression,never,2,0,3,7,no,no,358,1,2,22.7,LOW,Proactive Phone Call,no
+P363,66,Outer Regional,no,Hypertension | Asthma,never,9,1,0,154,yes,no,13,2,1,22.7,LOW,Proactive Phone Call,no
+P369,69,Outer Regional,no,Hypertension | Asthma,never,6,0,0,16,yes,no,73,2,0,22.3,LOW,Proactive Phone Call,no
+P108,71,Outer Regional,no,Asthma | Depression,never,4,0,3,157,yes,no,26,2,2,22.2,LOW,Proactive Phone Call,no
+P027,47,Outer Regional,no,Hypertension,never,3,0,5,276,no,no,30,1,2,22.1,LOW,Proactive Phone Call,no
+P344,58,Very Remote,no,Heart Failure,former,5,1,1,276,no,no,212,1,2,21.7,LOW,Proactive Phone Call,no
+P171,51,Outer Regional,no,Heart Failure | Hypertension,never,5,0,1,44,yes,no,23,2,0,21.4,LOW,Proactive Phone Call,no
+P384,58,Outer Regional,no,Heart Failure,never,2,2,4,185,yes,no,90,1,2,21.1,LOW,Proactive Phone Call,yes
+P039,44,Outer Regional,no,Heart Failure,never,4,3,3,86,no,no,25,1,2,21.0,LOW,Proactive Phone Call,no
+P220,69,Outer Regional,no,Depression,current,1,2,5,48,yes,no,66,1,2,20.9,LOW,Proactive Phone Call,no
+P308,57,Outer Regional,no,Asthma,never,4,2,7,352,yes,yes,39,1,2,20.9,LOW,Proactive Phone Call,no
+P036,46,Very Remote,no,CKD,never,3,1,3,208,no,no,145,1,3,20.8,LOW,Proactive Phone Call,no
+P089,58,Outer Regional,no,CKD | Heart Failure,current,4,0,1,89,no,no,27,2,2,20.7,LOW,Proactive Phone Call,no
+P333,69,Very Remote,no,Hypertension,former,5,3,1,55,no,no,314,1,2,20.7,LOW,Proactive Phone Call,no
+P094,62,Outer Regional,no,Heart Failure,current,3,0,3,180,yes,no,89,1,3,20.6,LOW,Proactive Phone Call,no
+P311,64,Outer Regional,no,Asthma | CKD,never,5,1,3,311,yes,no,88,2,2,20.5,LOW,Proactive Phone Call,no
+P442,67,Very Remote,no,Hypertension,former,5,2,0,297,no,no,178,1,2,20.4,LOW,Proactive Phone Call,no
+P112,67,Very Remote,no,Hypertension,never,4,0,4,232,yes,no,124,1,2,20.4,LOW,Proactive Phone Call,no
+P272,42,Outer Regional,no,Heart Failure,never,0,0,6,276,yes,no,31,1,2,20.3,LOW,Proactive Phone Call,no
+P064,46,Very Remote,no,Asthma,never,4,5,0,237,no,no,84,1,3,20.2,LOW,Proactive Phone Call,no
+P164,53,Remote,no,Hypertension,never,4,0,1,253,yes,yes,110,1,2,20.1,LOW,Proactive Phone Call,no
+P246,61,Very Remote,no,Asthma | Hypertension,former,2,2,0,354,yes,no,143,2,1,20.0,LOW,Proactive Phone Call,no
+P269,60,Very Remote,no,COPD | Hypertension,former,4,2,6,267,yes,no,292,2,2,19.8,LOW,Proactive Phone Call,no
+P050,36,Outer Regional,no,Depression | Asthma,never,3,0,2,305,yes,yes,41,2,1,19.5,LOW,Proactive Phone Call,no
+P218,63,Very Remote,no,Type 2 Diabetes,never,1,1,4,1,yes,no,294,1,1,19.4,LOW,Proactive Phone Call,no
+P402,57,Outer Regional,no,Heart Failure,never,2,1,5,225,yes,yes,97,1,2,19.3,LOW,Proactive Phone Call,no
+P367,72,Remote,no,Type 2 Diabetes | CKD,never,4,0,1,203,no,no,47,2,3,19.3,LOW,Proactive Phone Call,no
+P061,59,Outer Regional,no,Depression | Type 2 Diabetes,never,6,2,1,42,no,no,53,2,1,19.3,LOW,Proactive Phone Call,no
+P261,51,Outer Regional,no,Asthma | Depression | Hypertension,never,5,2,2,165,yes,no,82,3,1,19.2,LOW,Proactive Phone Call,no
+P409,70,Outer Regional,no,Type 2 Diabetes | Heart Failure,former,6,1,2,99,yes,no,17,2,1,18.9,LOW,Proactive Phone Call,no
+P463,55,Remote,no,Heart Failure,former,5,5,0,63,no,no,189,1,2,18.8,LOW,Proactive Phone Call,no
+P020,42,Outer Regional,no,Hypertension | Heart Failure,never,4,6,0,60,no,yes,41,2,1,18.8,LOW,Proactive Phone Call,no
+P091,69,Outer Regional,no,Type 2 Diabetes | CKD,current,2,2,2,237,yes,no,99,2,3,18.6,LOW,Proactive Phone Call,no
+P200,47,Very Remote,no,Type 2 Diabetes,former,2,0,2,156,no,yes,268,1,3,18.3,LOW,Proactive Phone Call,no
+P156,55,Very Remote,no,Depression | Type 2 Diabetes,current,4,0,2,182,no,no,271,2,4,18.2,LOW,Proactive Phone Call,no
+P481,65,Remote,no,Asthma,never,2,0,3,349,yes,no,67,1,2,18.0,LOW,Proactive Phone Call,no
+P423,63,Outer Regional,no,Asthma,never,2,1,3,68,yes,no,99,1,1,17.4,LOW,Proactive Phone Call,no
+P002,65,Remote,no,Hypertension,never,1,3,1,80,no,no,66,1,2,17.2,LOW,Proactive Phone Call,yes
+P288,78,Outer Regional,no,Depression,former,3,1,0,304,yes,no,10,1,2,17.0,LOW,Proactive Phone Call,no
+P318,62,Outer Regional,no,Asthma,never,6,0,0,192,yes,no,60,1,1,16.9,LOW,Proactive Phone Call,no
+P241,53,Outer Regional,no,Hypertension,current,4,1,3,42,yes,no,27,1,2,16.5,LOW,Proactive Phone Call,no
+P130,58,Very Remote,no,COPD,never,4,0,3,195,no,no,256,1,3,16.5,LOW,Proactive Phone Call,no
+P085,53,Outer Regional,no,Heart Failure,never,4,7,0,105,yes,yes,22,1,2,16.4,LOW,Proactive Phone Call,no
+P396,59,Outer Regional,no,Type 2 Diabetes,never,5,2,3,62,yes,no,53,1,1,16.2,LOW,Proactive Phone Call,no
+P266,45,Outer Regional,no,Hypertension,former,2,5,1,351,yes,no,6,1,2,16.1,LOW,Proactive Phone Call,no
+P455,58,Outer Regional,yes,Hypertension,never,3,0,3,173,yes,no,90,1,2,15.8,LOW,Proactive Phone Call,no
+P199,69,Outer Regional,no,Asthma | Type 2 Diabetes,former,6,2,0,115,no,no,13,2,1,15.8,LOW,Proactive Phone Call,no
+P125,78,Outer Regional,no,Hypertension | Depression,never,5,2,2,154,yes,no,70,2,2,15.8,LOW,Proactive Phone Call,no
+P456,53,Remote,no,COPD,former,4,0,1,153,no,no,97,1,2,15.4,LOW,Proactive Phone Call,no
+P341,53,Outer Regional,no,Heart Failure,never,4,2,2,334,yes,no,99,1,1,15.3,LOW,Proactive Phone Call,no
+P477,78,Outer Regional,no,COPD | Depression,never,6,1,1,66,yes,no,40,2,1,15.2,LOW,Proactive Phone Call,no
+P116,73,Outer Regional,no,Asthma | Type 2 Diabetes,current,5,0,1,364,yes,no,71,2,2,15.2,LOW,Proactive Phone Call,no
+P229,55,Outer Regional,no,Hypertension,former,3,1,5,354,yes,no,39,1,2,15.2,LOW,Proactive Phone Call,no
+P014,33,Remote,no,Heart Failure,never,1,0,2,72,no,no,103,1,1,15.1,LOW,Proactive Phone Call,no
+P206,51,Very Remote,no,Type 2 Diabetes,former,3,0,1,232,no,no,128,1,2,14.9,LOW,Proactive Phone Call,no
+P194,45,Outer Regional,no,CKD,never,2,2,1,325,no,no,44,1,1,14.9,LOW,Proactive Phone Call,no
+P441,74,Outer Regional,no,Type 2 Diabetes,former,5,5,0,180,yes,yes,100,1,2,14.7,LOW,Proactive Phone Call,no
+P029,57,Very Remote,no,CKD | COPD,never,4,0,1,297,no,no,306,2,2,14.5,LOW,Proactive Phone Call,no
+P280,61,Very Remote,no,CKD,never,4,0,1,348,no,no,316,1,2,14.4,LOW,Proactive Phone Call,no
+P101,42,Outer Regional,no,Type 2 Diabetes,current,3,0,1,242,yes,no,62,1,2,14.2,LOW,Proactive Phone Call,no
+P137,53,Outer Regional,no,Asthma,never,4,2,2,134,no,yes,20,1,1,13.6,LOW,Proactive Phone Call,no
+P239,56,Very Remote,no,Depression,former,3,2,0,115,no,no,249,1,2,13.4,LOW,Proactive Phone Call,no
+P093,55,Outer Regional,no,Depression,never,5,1,1,307,yes,no,47,1,1,13.0,LOW,Proactive Phone Call,yes
+P023,69,Very Remote,no,CKD,never,1,1,2,209,no,no,201,1,2,12.6,LOW,Proactive Phone Call,no
+P425,79,Outer Regional,no,CKD,current,1,2,2,86,yes,no,28,1,2,12.5,LOW,Proactive Phone Call,no
+P486,42,Outer Regional,no,Heart Failure,never,4,1,2,115,no,no,72,1,1,11.8,LOW,Proactive Phone Call,no
+P279,69,Outer Regional,no,Type 2 Diabetes | CKD,former,5,1,1,338,yes,no,77,2,2,11.8,LOW,Proactive Phone Call,no
+P070,56,Outer Regional,no,Hypertension | COPD,former,4,2,2,318,no,no,33,2,1,11.7,LOW,Proactive Phone Call,no
+P330,79,Outer Regional,no,Heart Failure,never,2,5,0,249,yes,yes,87,1,3,11.4,LOW,Proactive Phone Call,no
+P498,64,Outer Regional,no,Depression | Hypertension,never,4,1,2,62,yes,no,48,2,0,11.4,LOW,Proactive Phone Call,no
+P278,57,Outer Regional,no,Type 2 Diabetes,never,4,1,2,149,no,yes,79,1,1,11.1,LOW,Proactive Phone Call,no
+P438,43,Outer Regional,no,Hypertension,former,3,1,0,68,no,no,51,1,0,10.6,LOW,Proactive Phone Call,no
+P391,51,Outer Regional,no,Heart Failure,never,5,4,1,44,no,no,68,1,1,10.3,LOW,Proactive Phone Call,no
+P012,59,Outer Regional,yes,Hypertension | Depression,never,3,0,0,170,yes,yes,90,2,1,10.3,LOW,Proactive Phone Call,no
+P006,63,Very Remote,no,Heart Failure,never,4,0,0,288,no,no,299,1,2,10.2,LOW,Proactive Phone Call,no
+P347,41,Outer Regional,no,Heart Failure,never,5,1,2,81,yes,no,50,1,0,10.1,LOW,Proactive Phone Call,no
+P449,58,Outer Regional,yes,Hypertension,former,3,2,0,40,no,no,64,1,0,10.0,LOW,Proactive Phone Call,no
+P201,74,Outer Regional,no,Hypertension,former,2,0,1,120,yes,no,93,1,1,9.5,LOW,Proactive Phone Call,no
+P132,69,Remote,no,Heart Failure,current,2,0,1,242,yes,no,41,1,2,9.0,LOW,Proactive Phone Call,no
+P487,56,Outer Regional,no,Asthma,never,2,3,1,128,yes,no,11,1,2,8.9,LOW,Proactive Phone Call,no
+P357,67,Outer Regional,no,Asthma,former,4,1,2,92,yes,no,30,1,1,8.9,LOW,Proactive Phone Call,no
+P358,62,Outer Regional,no,Heart Failure | Depression,former,2,0,1,186,yes,no,98,2,1,8.7,LOW,Proactive Phone Call,no
+P034,48,Outer Regional,yes,CKD,never,1,0,1,79,yes,no,74,1,0,8.4,LOW,Proactive Phone Call,no
+P399,65,Outer Regional,no,Type 2 Diabetes | COPD,former,2,0,2,129,yes,no,88,2,1,7.3,LOW,Proactive Phone Call,no
+P077,69,Outer Regional,no,COPD | Heart Failure,current,2,1,0,65,yes,no,75,2,2,6.8,LOW,Proactive Phone Call,no
+P287,65,Very Remote,no,Hypertension,former,2,0,1,61,no,no,249,1,1,6.6,LOW,Proactive Phone Call,no
+P469,58,Outer Regional,yes,Heart Failure,never,4,0,0,157,yes,yes,25,1,1,6.5,LOW,Proactive Phone Call,no
+P445,44,Outer Regional,no,Heart Failure,never,4,2,1,220,yes,yes,65,1,1,6.5,LOW,Proactive Phone Call,no
+P265,63,Outer Regional,no,Asthma,never,3,3,0,232,yes,no,99,1,2,6.3,LOW,Proactive Phone Call,no
+P231,54,Outer Regional,no,COPD,former,2,1,0,160,no,no,72,1,1,6.2,LOW,Proactive Phone Call,no
+P103,61,Outer Regional,no,Type 2 Diabetes | Heart Failure,never,4,0,0,181,yes,no,90,2,1,6.0,LOW,Proactive Phone Call,no
+P310,64,Outer Regional,no,Asthma,former,3,3,0,131,yes,no,62,1,2,5.4,LOW,Proactive Phone Call,no
+P338,62,Outer Regional,no,Heart Failure,former,4,2,0,296,yes,no,47,1,1,5.0,LOW,Proactive Phone Call,no
+P025,58,Outer Regional,no,COPD,never,2,0,0,169,yes,yes,40,1,1,4.3,LOW,Proactive Phone Call,no
+P081,64,Outer Regional,no,COPD,never,2,4,1,143,yes,no,76,1,2,4.3,LOW,Proactive Phone Call,no
+P321,69,Outer Regional,no,Depression | Heart Failure,never,3,0,0,112,yes,no,68,2,1,3.8,LOW,Proactive Phone Call,no
+P412,47,Outer Regional,no,Hypertension,never,3,0,0,117,yes,no,30,1,1,2.8,LOW,Proactive Phone Call,no
+P047,59,Outer Regional,no,Type 2 Diabetes,former,4,0,0,146,yes,no,28,1,1,2.7,LOW,Proactive Phone Call,no
