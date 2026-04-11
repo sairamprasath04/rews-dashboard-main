@@ -2083,32 +2083,30 @@ function PatientIntakeForm({me,profile,currentUser,addToast,onDone,addIntakeSubm
     };
   }
 
-  async function handleSubmit(e){
+  function handleSubmit(e){
     e.preventDefault();
-    setLoading(true);
-    const symptoms=getSymptoms(form);
-    const payload=buildPredictionPayload(me,profile,symptoms);
-    let risk_result = null;
-    try {
-      risk_result = await getPrediction(payload);
-    } catch (err) {
-      console.error("Risk calc failed silently", err);
-      addToast("Risk calculation failed — submission saved without score.", "warn");
-    }
-
+    const submissionId=Date.now();
     const submission={
-      id:Date.now(),
+      id:submissionId,
       patient_id:me.patient_id,
       patient_name:currentUser.name,
       submitted_at:new Date().toISOString(),
       form:{...form},
-      risk_result,
+      risk_result:null,
       status:"pending",
     };
+    // Save immediately — no waiting for API
     addIntakeSubmission(submission);
-    setLoading(false);
     setSubmitted(true);
     addToast("Your symptoms have been submitted to your care team.");
+    // Fire API in background; update risk_result if it responds
+    if(BACKEND_URL){
+      const symptoms=getSymptoms(form);
+      const payload=buildPredictionPayload(me,profile,symptoms);
+      getPrediction(payload).then(risk_result=>{
+        if(risk_result) addIntakeSubmission({...submission,risk_result});
+      }).catch(()=>{});
+    }
   }
 
   const v=useVisible(50);
