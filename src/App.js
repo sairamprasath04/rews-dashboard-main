@@ -300,7 +300,7 @@ function PageLogin({onLogin}){
       <div style={{width:420,background:T.white,borderRadius:20,boxShadow:"0 24px 80px rgba(0,0,0,0.35)",overflow:"hidden"}}>
         {/* Header */}
         <div style={{background:T.navy,padding:"32px 36px 28px",textAlign:"center"}}>
-          <div style={{fontSize:42,fontWeight:700,color:T.white,letterSpacing:"-0.03em",lineHeight:1}}>REWS</div>
+          <div style={{fontSize:42,fontWeight:700,color:T.white,letterSpacing:"-0.03em",lineHeight:1}}>TriSyd</div>
           <div style={{fontSize:11,color:T.sky,letterSpacing:"0.14em",textTransform:"uppercase",marginTop:5,fontWeight:500}}>Early Warning System</div>
         </div>
         {/* Tabs */}
@@ -1054,7 +1054,7 @@ function PatientOnboarding({currentUser,onComplete}){
         {/* Header */}
         <div style={{background:T.navy,padding:"28px 36px 24px"}}>
           <div style={{display:"flex",alignItems:"center",gap:12,marginBottom:16}}>
-            <div style={{fontSize:28,fontWeight:700,color:T.white,letterSpacing:"-0.02em"}}>REWS</div>
+            <div style={{fontSize:28,fontWeight:700,color:T.white,letterSpacing:"-0.02em"}}>TriSyd</div>
             <div style={{fontSize:10,color:T.sky,letterSpacing:"0.14em",textTransform:"uppercase",fontWeight:500,marginTop:2}}>Patient Setup</div>
           </div>
           <div style={{fontSize:13,color:"rgba(248,250,252,0.55)",marginBottom:8}}>Welcome, {currentUser.name.split(" ")[0]} 👋 Let's set up your health profile.</div>
@@ -1344,7 +1344,7 @@ function PatientOnboarding({currentUser,onComplete}){
 function PatientDiabetesProgram({me,addToast}){
   const [chatMsg,setChatMsg]=useState("");
   const [chatHistory,setChatHistory]=useState([
-    {from:"bot",text:"Hi! I'm your REWS health assistant. How are you feeling today? Have you had a chance to do your post-meal walk?"},
+    {from:"bot",text:"Hi! I'm your TriSyd health assistant. How are you feeling today? Have you had a chance to do your post-meal walk?"},
   ]);
   const programDay=3;
   const v=useVisible(50);
@@ -1478,7 +1478,7 @@ function PatientDiabetesProgram({me,addToast}){
         <div style={{padding:"16px 20px",borderBottom:`1px solid ${T.border}`,display:"flex",alignItems:"center",gap:10}}>
           <div style={{width:36,height:36,borderRadius:"50%",background:`linear-gradient(135deg,${T.sky},#38BDF8)`,display:"flex",alignItems:"center",justifyContent:"center",fontSize:16}}>🤖</div>
           <div>
-            <div style={{fontSize:13,fontWeight:700,color:T.text}}>REWS Health Assistant</div>
+            <div style={{fontSize:13,fontWeight:700,color:T.text}}>TriSyd Health Assistant</div>
             <div style={{fontSize:11,color:T.green}}>● Online — here to support your journey</div>
           </div>
         </div>
@@ -1551,7 +1551,7 @@ function PatientPortal({currentUser,onLogout,appointments,setAppointments,addToa
       {/* Patient Sidebar */}
       <div style={{width:240,background:`linear-gradient(180deg, #0F172A 0%, #1E3A5F 100%)`,display:"flex",flexDirection:"column",position:"fixed",top:0,left:0,height:"100vh",zIndex:50}}>
         <div style={{padding:"24px 20px 20px",borderBottom:"1px solid rgba(255,255,255,0.08)"}}>
-          <div style={{fontSize:28,fontWeight:700,color:T.white,letterSpacing:"-0.02em"}}>REWS</div>
+          <div style={{fontSize:28,fontWeight:700,color:T.white,letterSpacing:"-0.02em"}}>TriSyd</div>
           <div style={{fontSize:10,color:"#7DD3FC",letterSpacing:"0.12em",textTransform:"uppercase",marginTop:2,fontWeight:500}}>Patient Portal</div>
         </div>
         <div style={{margin:"16px 12px",background:"rgba(255,255,255,0.07)",borderRadius:12,padding:"14px 16px"}}>
@@ -2288,7 +2288,7 @@ function PatientMessages({addToast}){
   const MESSAGES=[
     {id:0,from:"Dr. Sarah Chen",avatar:"SC",color:"#0EA5E9",date:"Today",time:"09:15",preview:"Your latest test results are in — everything looks stable.",body:"Hi, just wanted to let you know your latest blood panel results came back. Your kidney function markers are stable, and your HbA1c is within target range. Keep up the good work with your diet and medication routine. I'd like to see you again in 4–6 weeks. Let me know if you have any questions or if anything changes before then.",unread:true},
     {id:1,from:"Dr. James Wu",avatar:"JW",color:"#10B981",date:"Yesterday",time:"14:30",preview:"Reminder about your upcoming telehealth appointment.",body:"Hi there, this is a reminder that your telehealth appointment is coming up on 10 April at 9:30am. Please ensure you are in a quiet, well-lit space with a stable internet connection. The link will be sent to your email 15 minutes before. Please have a list of any symptoms or concerns ready to discuss.",unread:false},
-    {id:2,from:"REWS Care Team",avatar:"RT",color:"#8B5CF6",date:"Apr 5",time:"11:00",preview:"Welcome to the REWS patient portal!",body:"Welcome to the Early Warning System patient portal. Here you can view your appointments, contact your care team, and access your health summary. If you have any questions about how to use the portal, please reply to this message or call our helpline at 1800 022 222. We're here to support your health.",unread:false},
+    {id:2,from:"TriSyd Care Team",avatar:"RT",color:"#8B5CF6",date:"Apr 5",time:"11:00",preview:"Welcome to the TriSyd patient portal!",body:"Welcome to the Early Warning System patient portal. Here you can view your appointments, contact your care team, and access your health summary. If you have any questions about how to use the portal, please reply to this message or call our helpline at 1800 022 222. We're here to support your health.",unread:false},
   ];
   const msg=MESSAGES[selected];
   return(
@@ -2766,7 +2766,7 @@ function DoctorShell({currentUser,onLogout,appointments,setAppointments,addToast
       {/* Sidebar */}
       <div style={{width:240,background:T.navy,display:"flex",flexDirection:"column",position:"fixed",top:0,left:0,height:"100vh",zIndex:50}}>
         <div style={{padding:"24px 20px 20px",borderBottom:"1px solid rgba(255,255,255,0.07)"}}>
-          <div style={{fontSize:34,fontWeight:700,color:T.white,letterSpacing:"-0.02em",lineHeight:1}}>REWS</div>
+          <div style={{fontSize:34,fontWeight:700,color:T.white,letterSpacing:"-0.02em",lineHeight:1}}>TriSyd</div>
           <div style={{fontSize:10,color:T.sky,letterSpacing:"0.12em",textTransform:"uppercase",marginTop:4,fontWeight:500}}>Early Warning</div>
         </div>
         <nav style={{flex:1,padding:"12px 8px",overflowY:"auto"}}>
