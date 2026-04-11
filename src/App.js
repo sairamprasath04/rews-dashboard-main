@@ -2823,9 +2823,22 @@ export default function App(){
   });
   const [toasts,setToasts]=useState([]);
 
+  // Sync intake submissions across tabs (patient tab → doctor tab)
+  useEffect(()=>{
+    function onStorage(e){
+      if(e.key==="rews_intake_submissions"){
+        try{ setIntakeSubmissions(JSON.parse(e.newValue||"[]")); }catch{}
+      }
+    }
+    window.addEventListener("storage",onStorage);
+    return ()=>window.removeEventListener("storage",onStorage);
+  },[]);
+
   function addIntakeSubmission(submission){
     setIntakeSubmissions(prev=>{
-      const updated=[...prev,submission];
+      // Upsert by id so a background risk update replaces rather than duplicates
+      const exists=prev.some(s=>s.id===submission.id);
+      const updated=exists ? prev.map(s=>s.id===submission.id?submission:s) : [...prev,submission];
       localStorage.setItem("rews_intake_submissions",JSON.stringify(updated));
       return updated;
     });
