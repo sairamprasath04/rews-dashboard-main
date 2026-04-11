@@ -1356,9 +1356,38 @@ function PatientDiabetesProgram({me,addToast}){
     setChatHistory(h=>[...h,{from:"user",text:msg}]);
     setChatMsg("");
     setTimeout(()=>{
-      const replies=["Great to hear! Remember to track your nutrition after each meal.","Your glucose levels have been improving — keep up the great work!","Don't forget your evening walk today — it helps stabilise overnight glucose.","Your doctor has been notified of your progress. You're doing well!","Try to aim for 7–8 hours of sleep tonight — it makes a real difference to your blood sugar."];
-      setChatHistory(h=>[...h,{from:"bot",text:replies[Math.floor(Math.random()*replies.length)]}]);
-    },800);
+      const m=msg.toLowerCase();
+      let reply;
+      if(m.match(/hello|hi|hey|good (morning|afternoon|evening)/))
+        reply="Hello! How are you feeling today? I'm here to support you through your diabetes program.";
+      else if(m.match(/glucose|sugar|reading|cgm|blood sugar/))
+        reply="Your current glucose reading is 125 mg/dL — that's within your target range of 70–140 mg/dL. Keep it up!";
+      else if(m.match(/medication|meds|medicine|insulin/))
+        reply="Please make sure to take your medications at the same time each day. If you have concerns about your medications, contact your care team.";
+      else if(m.match(/diet|eat|food|nutrition|meal|carb/))
+        reply="Try to eat plenty of vegetables, legumes and wholegrains. Limit foods high in saturated fat, salt and added sugars. Small, regular meals help keep your glucose stable.";
+      else if(m.match(/exercise|walk|active|activity|workout|gym/))
+        reply="Aim for at least 30 minutes of moderate activity on most days. Even a short walk after meals can help bring your glucose down.";
+      else if(m.match(/tired|fatigue|exhausted|sleep/))
+        reply="Fatigue can be a sign of blood sugar changes. Aim for 7–8 hours of sleep and try to keep a regular sleep schedule. Let your doctor know if tiredness is persistent.";
+      else if(m.match(/pain|hurt|sore|headache/))
+        reply="I'm sorry to hear you're in discomfort. If you're experiencing chest pain, difficulty breathing, or sudden severe symptoms, please call 000 immediately. Otherwise, log your symptoms and your care team will follow up.";
+      else if(m.match(/stress|anxious|anxiety|worry|depressed|sad|mental/))
+        reply="Managing your mental health is just as important as physical health. Stress can affect blood sugar levels. Consider talking to your GP or a counsellor — your care team can help connect you with support.";
+      else if(m.match(/appointment|doctor|gp|specialist|visit/))
+        reply="Your next appointment is visible in the Appointments tab. If you need to reschedule or have urgent concerns, please contact your care team directly.";
+      else if(m.match(/weight|waist|bmi/))
+        reply="Maintaining a healthy weight helps improve insulin sensitivity. Even small reductions in weight can have a big impact on your blood sugar control.";
+      else if(m.match(/smoke|smoking|cigarette/))
+        reply="Smoking significantly increases the risk of diabetes complications. If you'd like support to quit, ask your GP about cessation programs available to you.";
+      else if(m.match(/thank|thanks|great|good|awesome|perfect/))
+        reply="You're doing great! Staying engaged with your health program makes a real difference. Keep going!";
+      else if(m.match(/help|what can you do|support/))
+        reply="I can answer questions about your glucose readings, medications, diet, exercise, symptoms, and appointments. What would you like to know?";
+      else
+        reply="That's a great question to raise with your care team. You can log any concerns using the Report Symptoms button, and a nurse or doctor will follow up with you.";
+      setChatHistory(h=>[...h,{from:"bot",text:reply}]);
+    },600);
   }
   return(
     <div style={{opacity:v?1:0,transition:"opacity 0.4s"}}>
