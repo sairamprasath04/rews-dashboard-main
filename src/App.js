@@ -1500,7 +1500,7 @@ function PatientDiabetesProgram({me,addToast}){
   );
 }
 
-function PatientPortal({currentUser,onLogout,appointments,setAppointments,addToast}){
+function PatientPortal({currentUser,onLogout,appointments,setAppointments,addToast,addIntakeSubmission}){
   const profileKey=`rews_profile_${currentUser.email}`;
   const [profile,setProfile]=useState(()=>{
     try{ return JSON.parse(localStorage.getItem(profileKey)||"null"); }catch{ return null; }
@@ -1536,7 +1536,7 @@ function PatientPortal({currentUser,onLogout,appointments,setAppointments,addToa
   function renderPatientPage(){
     switch(page){
       case "home":         return <PatientHome me={me} upcoming={upcoming} setPage={setPage} currentUser={currentUser} statusColor={statusColor} profile={profile}/>;
-      case "intake":       return <PatientIntakeForm me={me} profile={profile} currentUser={currentUser} addToast={addToast} onDone={()=>setPage("home")}/>;
+      case "intake":       return <PatientIntakeForm me={me} profile={profile} currentUser={currentUser} addToast={addToast} onDone={()=>setPage("home")} addIntakeSubmission={addIntakeSubmission}/>;
       case "appointments": return <PatientAppointments me={me} upcoming={upcoming} past={past} typeColor={typeColor} statusColor={statusColor} appointments={appointments} setAppointments={setAppointments} addToast={addToast} pid={pid}/>;
       case "mycare":       return <PatientCareTeam me={me} addToast={addToast}/>;
       case "health":       return <PatientHealth me={me} profile={profile}/>;
@@ -2038,7 +2038,7 @@ function PatientHealth({me,profile}){
 }
 
 // ─── Patient: Intake Form ─────────────────────────────────────────────────────
-function PatientIntakeForm({me,profile,currentUser,addToast,onDone}){
+function PatientIntakeForm({me,profile,currentUser,addToast,onDone,addIntakeSubmission}){
   const INTAKE_KEY="rews_intake_submissions";
   const [submitted,setSubmitted]=useState(false);
   const [loading,setLoading]=useState(false);
@@ -2105,8 +2105,7 @@ function PatientIntakeForm({me,profile,currentUser,addToast,onDone}){
       risk_result,
       status:"pending",
     };
-    const prev=JSON.parse(localStorage.getItem(INTAKE_KEY)||"[]");
-    localStorage.setItem(INTAKE_KEY,JSON.stringify([...prev,submission]));
+    addIntakeSubmission(submission);
     setLoading(false);
     setSubmitted(true);
     addToast("Your symptoms have been submitted to your care team.");
@@ -2337,28 +2336,18 @@ function PatientMessages({addToast}){
 }
 
 // ─── Doctor: Intake Queue ─────────────────────────────────────────────────────
-function PageIntakeQueue({addToast,onNavigate}){
-  const INTAKE_KEY="rews_intake_submissions";
-  const [submissions,setSubmissions]=useState(()=>{
-    try{return JSON.parse(localStorage.getItem(INTAKE_KEY)||"[]");}catch{return [];}
-  });
+function PageIntakeQueue({addToast,onNavigate,submissions,setSubmissions}){
   const [filter,setFilter]=useState("pending");
   const [expanded,setExpanded]=useState(null);
   const v=useVisible(50);
 
-  function reload(){
-    try{setSubmissions(JSON.parse(localStorage.getItem(INTAKE_KEY)||"[]"));}catch{}
-  }
-
   function markReviewed(id){
     const updated=submissions.map(s=>s.id===id?{...s,status:"reviewed"}:s);
-    localStorage.setItem(INTAKE_KEY,JSON.stringify(updated));
     setSubmissions(updated);
     addToast("Intake marked as reviewed.");
   }
 
   function clearAll(){
-    localStorage.setItem(INTAKE_KEY,"[]");
     setSubmissions([]);
     addToast("All intake submissions cleared.");
   }
@@ -2415,7 +2404,6 @@ function PageIntakeQueue({addToast,onNavigate}){
           {["pending","reviewed","all"].map(f=>(
             <button key={f} onClick={()=>setFilter(f)} style={{padding:"6px 14px",borderRadius:16,fontSize:12,fontWeight:600,border:`1.5px solid ${filter===f?T.sky:T.border}`,background:filter===f?T.skyLight:"none",color:filter===f?T.sky:T.muted,cursor:"pointer",fontFamily:"inherit",textTransform:"capitalize"}}>{f}</button>
           ))}
-          <button onClick={reload} style={{padding:"6px 12px",borderRadius:8,background:"none",border:`1px solid ${T.border}`,color:T.muted,fontSize:12,cursor:"pointer",fontFamily:"inherit"}}>↻ Refresh</button>
         </div>
       </div>
 
@@ -2742,17 +2730,17 @@ const NAV=[{id:"dashboard",icon:"🏠",label:"Dashboard"},{id:"patients",icon:"�
 const PAGE_TITLES={dashboard:"Dashboard",patients:"Patients",alerts:"Active Alerts",intake:"Intake Queue",schedule:"Schedule & Calendar",analytics:"Analytics",specialist:"Specialist Referrals",settings:"Settings"};
 
 // ─── Doctor Shell ─────────────────────────────────────────────────────────────
-function DoctorShell({currentUser,onLogout,appointments,setAppointments,addToast}){
+function DoctorShell({currentUser,onLogout,appointments,setAppointments,addToast,intakeSubmissions,updateIntakeSubmissions}){
   const [page,setPage]=useState("dashboard");
   const alertCount=PATIENTS.filter(p=>p.risk_tier==="HIGH").length;
-  const intakeCount=(()=>{try{return JSON.parse(localStorage.getItem("rews_intake_submissions")||"[]").filter(s=>s.status==="pending").length;}catch{return 0;}})();
+  const intakeCount=intakeSubmissions.filter(s=>s.status==="pending").length;
 
   const renderPage=()=>{
     switch(page){
       case "dashboard": return <PageDashboard onNavigate={setPage}/>;
       case "patients":  return <PagePatients addToast={addToast}/>;
       case "alerts":    return <PageAlerts onNavigate={setPage} addToast={addToast}/>;
-      case "intake":    return <PageIntakeQueue addToast={addToast} onNavigate={setPage}/>;
+      case "intake":    return <PageIntakeQueue addToast={addToast} onNavigate={setPage} submissions={intakeSubmissions} setSubmissions={updateIntakeSubmissions}/>;
       case "schedule":  return <PageSchedule appointments={appointments} setAppointments={setAppointments} addToast={addToast}/>;
       case "analytics": return <PageAnalytics/>;
       case "specialist":return <PageSpecialist addToast={addToast}/>;
@@ -2832,7 +2820,23 @@ export default function App(){
     try{ return JSON.parse(localStorage.getItem("rews_user")||"null"); }catch{ return null; }
   });
   const [appointments,setAppointments]=useState(DEFAULT_APPOINTMENTS);
+  const [intakeSubmissions,setIntakeSubmissions]=useState(()=>{
+    try{ return JSON.parse(localStorage.getItem("rews_intake_submissions")||"[]"); }catch{ return []; }
+  });
   const [toasts,setToasts]=useState([]);
+
+  function addIntakeSubmission(submission){
+    setIntakeSubmissions(prev=>{
+      const updated=[...prev,submission];
+      localStorage.setItem("rews_intake_submissions",JSON.stringify(updated));
+      return updated;
+    });
+  }
+
+  function updateIntakeSubmissions(updated){
+    setIntakeSubmissions(updated);
+    localStorage.setItem("rews_intake_submissions",JSON.stringify(updated));
+  }
 
   function addToast(msg,type="success"){
     const id=Date.now()+Math.random();
@@ -2855,7 +2859,7 @@ export default function App(){
   if(currentUser.role==="patient"){
     return(
       <>
-        <PatientPortal currentUser={currentUser} onLogout={handleLogout} appointments={appointments} setAppointments={setAppointments} addToast={addToast}/>
+        <PatientPortal currentUser={currentUser} onLogout={handleLogout} appointments={appointments} setAppointments={setAppointments} addToast={addToast} addIntakeSubmission={addIntakeSubmission}/>
         <ToastContainer toasts={toasts}/>
       </>
     );
@@ -2863,7 +2867,7 @@ export default function App(){
 
   return(
     <>
-      <DoctorShell currentUser={currentUser} onLogout={handleLogout} appointments={appointments} setAppointments={setAppointments} addToast={addToast}/>
+      <DoctorShell currentUser={currentUser} onLogout={handleLogout} appointments={appointments} setAppointments={setAppointments} addToast={addToast} intakeSubmissions={intakeSubmissions} updateIntakeSubmissions={updateIntakeSubmissions}/>
       <ToastContainer toasts={toasts}/>
     </>
   );
